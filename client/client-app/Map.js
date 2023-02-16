@@ -6,14 +6,14 @@ import {
   SafeAreaView,
 } from "react-native";
 
-const Home = ({}) => {
+const Map = ({}) => {
   return (
     <SafeAreaView>
       <Text style={styles.titleText}>
-        {'Home'}
+        {'Map'}
       </Text>
     </SafeAreaView>
   );
 }
 
-export default Home;
+export default Map;

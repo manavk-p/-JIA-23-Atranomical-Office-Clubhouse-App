@@ -1,19 +1,18 @@
 import styles from "./styles";
 import React from "react";
-
 import {
   Text,
   SafeAreaView,
 } from "react-native";
 
-const Home = ({}) => {
+const Events = ({}) => {
   return (
     <SafeAreaView>
       <Text style={styles.titleText}>
-        {'Home'}
+        {'Events'}
       </Text>
     </SafeAreaView>
   );
 }
 
-export default Home;
+export default Events;

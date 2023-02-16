@@ -50,7 +50,7 @@ const Login = ({navigation}) => {
         <TouchableOpacity 
           style={styles.loginBtn}
           onPress={() =>
-            navigation.navigate('Home', {name: 'Jane'})
+            navigation.navigate('TabRoot', {name: 'Jane'})
           }
           disabled={!email || !password}
         >
