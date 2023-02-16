@@ -28,6 +28,7 @@ const Login = ({navigation}) => {
           <TextInput
             style={styles.TextInput}
             placeholder="Email Address"
+            autoComplete="email"
             placeholderTextColor="#003f5c"
             onChangeText={(email) => setEmail(email)}
           />
