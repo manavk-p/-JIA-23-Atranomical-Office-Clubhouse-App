@@ -28,6 +28,7 @@ const Login = ({navigation}) => {
           <TextInput
             style={styles.TextInput}
             placeholder="Email Address"
+            autoComplete="email"
             placeholderTextColor="#003f5c"
             onChangeText={(email) => setEmail(email)}
           />
@@ -50,7 +51,7 @@ const Login = ({navigation}) => {
         <TouchableOpacity 
           style={styles.loginBtn}
           onPress={() =>
-            navigation.navigate('Home', {name: 'Jane'})
+            navigation.navigate('TabRoot', {name: 'Jane'})
           }
           disabled={!email || !password}
         >

@@ -1,7 +1,7 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Login from "./Login";
-import Home from "./Home";
+import TabRoot from "./TabRoot";
 
 const Stack = createNativeStackNavigator();
 
@@ -15,7 +15,7 @@ function App() {
         }}
       >
         <Stack.Screen name="Login" component={Login} />
-        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="TabRoot" component={TabRoot} />
       </Stack.Navigator>
     </NavigationContainer>
   );
