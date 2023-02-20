@@ -31,6 +31,11 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginLeft: 18
   },
+  addEventText: {
+    fontSize: 18,
+    marginTop: 9,
+    marginRight: 10
+  },
 
   TextInput: {
     height: 50,
@@ -70,7 +75,6 @@ const styles = StyleSheet.create({
   },
   eventComponentContainer: {
     backgroundColor: '#D9D9D9',
-    height: 100,
     width: 365,
     borderColor: 'black',
     borderWidth: 1,
@@ -101,6 +105,7 @@ const styles = StyleSheet.create({
   eventRightContainer: {
     marginTop: 10,
     marginRight: 10,
+    marginLeft: -13
   }
 });
 

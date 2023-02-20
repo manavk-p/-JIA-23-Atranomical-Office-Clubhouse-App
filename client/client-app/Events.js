@@ -1,25 +1,39 @@
 import styles from "./styles";
-import React from "react";
+import {React, useState} from "react";
 import {
   Text,
   SafeAreaView,
-  View
+  View,
+  Pressable,
 } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 import EventComponent from "./EventComponent";
 import { EVENTS } from "./data/DummyData";
+
+
+
 
 function renderEventComponent(itemData) {
   return (<EventComponent
             name={itemData.item.name}
             date={itemData.item.date}
             time={itemData.item.time}
+            description={itemData.item.description}
           />
         );
 }
 
 
+
 const Events = ({}) => {
+
+  const [isMenuVisible, setMenuVisible] = useState(false);
+
+  function toggleMenu() {
+    setMenuVisible(!isMenuVisible);
+  }
+
+
   return (
     <SafeAreaView>
       <View>
@@ -27,9 +41,12 @@ const Events = ({}) => {
           <Text style={styles.titleText}>
             {'Events'}
           </Text>
-          <View>
+          <Pressable onPress={toggleMenu}>
+            <Text style={styles.addEventText}>
+              Add
+            </Text>
+          </Pressable>
 
-          </View>
         </View>
         <View style={styles.headerSeperator}>
           
