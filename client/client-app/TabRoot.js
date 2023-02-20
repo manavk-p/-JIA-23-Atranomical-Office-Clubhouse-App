@@ -10,7 +10,11 @@ const Tab = createBottomTabNavigator();
 
 const TabRoot = () => {
   return (
-      <Tab.Navigator>
+      <Tab.Navigator
+        screenOptions={{
+          headerShown: false
+        }}
+        >
         <Tab.Screen name="Home" component={Home} />
         <Tab.Screen name="Events" component={Events} />
         <Tab.Screen name="Map" component={Map} />
