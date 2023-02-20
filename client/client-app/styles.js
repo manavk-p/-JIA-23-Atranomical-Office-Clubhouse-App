@@ -28,7 +28,8 @@ const styles = StyleSheet.create({
   titleText: {
     fontSize: 28,
     paddingBottom: 28,
-    fontWeight: "bold"
+    fontWeight: "bold",
+    marginLeft: 18
   },
 
   TextInput: {
@@ -55,6 +56,51 @@ const styles = StyleSheet.create({
 
   loginText: {
     fontWeight: "500",
+  },
+  screenHeader: {
+    marginTop: 30,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: -12
+  },
+  headerSeperator: {
+    backgroundColor: 'black',
+    height: 1,
+    marginBottom: 10
+  },
+  eventComponentContainer: {
+    backgroundColor: '#D9D9D9',
+    height: 100,
+    width: 365,
+    borderColor: 'black',
+    borderWidth: 1,
+    marginBottom: 10,
+    shadowColor: '#171717',
+    shadowOffset: {width: -2, height: 4},
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  },
+  eventListContainer: {
+    alignItems: 'center',
+  },
+  eventTextPrimary: {
+    fontSize: 20,
+    fontWeight: 'bold'
+  },
+  eventTextSecondary: {
+    fontSize: 16,
+    fontWeight: '400',
+    marginBottom: 2
+  },
+  eventLeftContainer: {
+    marginTop: 5,
+    marginLeft: 5,
+  },
+  eventRightContainer: {
+    marginTop: 10,
+    marginRight: 10,
   }
 });
 
