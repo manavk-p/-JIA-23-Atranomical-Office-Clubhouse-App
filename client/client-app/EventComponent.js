@@ -4,16 +4,20 @@ import styles from "./styles";
 
 
 
-const EventComponent = ({name, date, time, imgSrc}) => {
+const EventComponent = ({name, date, time, imgSrc, description}) => {
     
     const [imgHeight, setImgHeight] = useState(0);
-
-
+    const [displayDescription, setDisplayDescription] = useState(true);
+    const [timeMarginBottom, setTimeMarginBottom] = useState(30);
     function onPressHandler() {
         if (imgHeight===150) {
             setImgHeight(0);
+            setDisplayDescription(true);
+            setTimeMarginBottom(30);
         } else {
             setImgHeight(150);
+            setDisplayDescription(false)
+            setTimeMarginBottom(0);
         }
     }
 
@@ -35,10 +39,13 @@ const EventComponent = ({name, date, time, imgSrc}) => {
                     <Text style={styles.eventTextSecondary}>
                         {date}
                     </Text>
-                    <Text style={styles.eventTextSecondary}>
+                    <Text style={[styles.eventTextSecondary, {marginBottom: timeMarginBottom} ]}>
                         {time}
                     </Text>
                     </View>
+                    <Text style={{display: displayDescription, marginBottom: 15, marginTop: 5}}> 
+                        {description}
+                    </Text>
 
                 </View>
                 <View style={styles.eventRightContainer}>
