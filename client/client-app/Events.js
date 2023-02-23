@@ -5,8 +5,8 @@ import {
   SafeAreaView,
   View,
   Pressable,
+  FlatList
 } from "react-native";
-import { FlatList } from "react-native-gesture-handler";
 import EventComponent from "./EventComponent";
 import { EVENTS } from "./data/DummyData";
 
@@ -27,12 +27,6 @@ function renderEventComponent(itemData) {
 
 const Events = ({}) => {
 
-  const [isMenuVisible, setMenuVisible] = useState(false);
-
-  function toggleMenu() {
-    setMenuVisible(!isMenuVisible);
-  }
-
 
   return (
     <SafeAreaView>
@@ -41,11 +35,9 @@ const Events = ({}) => {
           <Text style={styles.titleText}>
             {'Events'}
           </Text>
-          <Pressable onPress={toggleMenu}>
             <Text style={styles.addEventText}>
               Add
             </Text>
-          </Pressable>
 
         </View>
         <View style={styles.headerSeperator}>
@@ -57,7 +49,6 @@ const Events = ({}) => {
           data={EVENTS}
           keyExtractor={(item) => item.id}
           renderItem={renderEventComponent}
-          showsVerticalScrollIndicator={false}
         />
 
       </View>

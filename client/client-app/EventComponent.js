@@ -43,7 +43,7 @@ const EventComponent = ({name, date, time, imgSrc, description}) => {
                         {time}
                     </Text>
                     </View>
-                    <Text style={{display: displayDescription, marginBottom: 15, marginTop: 5}}> 
+                    <Text style={{ marginBottom: 15, marginTop: 5}}> 
                         {description}
                     </Text>
 
