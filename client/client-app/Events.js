@@ -29,7 +29,7 @@ const Events = ({}) => {
 
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.eventScreenContainer}>
       <View>
         <View style={styles.screenHeader}>
           <Text style={styles.titleText}>
@@ -45,7 +45,7 @@ const Events = ({}) => {
         </View>
       </View>
       <View style={styles.eventListContainer}>
-        <FlatList style={{height: 800}}
+        <FlatList showsVerticalScrollIndicator={false}
           data={EVENTS}
           keyExtractor={(item) => item.id}
           renderItem={renderEventComponent}
@@ -55,5 +55,6 @@ const Events = ({}) => {
     </SafeAreaView>
   );
 }
+
 
 export default Events;

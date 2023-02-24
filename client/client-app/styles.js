@@ -106,7 +106,10 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginRight: 10,
     marginLeft: -13
-  }
+  },
+  eventScreenContainer: {
+    flex: .88
+  },
 });
 
 export default styles;
