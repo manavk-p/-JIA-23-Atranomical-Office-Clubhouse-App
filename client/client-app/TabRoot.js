@@ -3,7 +3,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import Home from "./Home";
 import Events from "./Events";
-import Map from "./Map";
+//import Map from "./Map";
 import Settings from "./Settings";
 import Desks from "./Desks";
 import Rooms from "./Rooms"
