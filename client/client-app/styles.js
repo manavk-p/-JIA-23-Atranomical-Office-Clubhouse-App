@@ -1,5 +1,19 @@
 import { StyleSheet, Platform, StatusBar } from "react-native";
 
+const textStyles = StyleSheet.create({
+  h1: {
+    fontSize: 28,
+    fontWeight: "bold",
+  },
+  h2: {
+    fontSize: 22,
+    fontWeight: "500",
+  },
+  paragraph: {
+    fontSize: 14,
+    fontWeight: "regular",
+  }
+});
 
 const styles = StyleSheet.create({
   container: {
@@ -55,20 +69,6 @@ const styles = StyleSheet.create({
   forgot_button: {
     height: 30,
     marginBottom: 30,
-  },
-
-  loginBtn: {
-    width: "90%",
-    borderRadius: 16,
-    height: 50,
-    alignItems: "center",
-    justifyContent: "center",
-    marginTop: 40,
-    backgroundColor: "#33CA7F",
-  },
-
-  loginText: {
-    fontWeight: "500",
   },
   screenHeader: {
     marginTop: 30,
@@ -130,8 +130,7 @@ const styles = StyleSheet.create({
     padding: 10,
     marginBottom: 16
   }
-
 });
 
 
-export default styles;
+export { textStyles, styles };
