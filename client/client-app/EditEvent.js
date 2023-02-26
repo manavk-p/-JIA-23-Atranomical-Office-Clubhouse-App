@@ -5,9 +5,6 @@ import { EVENTS } from "./Events"
 
 
 const EditEvent = ({navigation, id}) => {
-    
-
-
     //TODO: Get Event
 
     //States for all fields
