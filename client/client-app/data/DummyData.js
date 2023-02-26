@@ -1,4 +1,5 @@
 import EventModel from "../models/EventModel";
+import RoomModel from "../models/RoomModel";
 
 const e1 = new EventModel('e1', 'Office Potluck', '10-24-22', '1:00 PM', null, "This is a placeholder description to test the client application. Please RSVP at least a day before each event.");
 const e2 = new EventModel('e2', 'Coffee and Donuts', '10-26-22', '9:30 AM', null, "This is a placeholder description to test the client application. Please RSVP at least a day before each event.");
@@ -13,4 +14,12 @@ export const EVENTS = [
     e3,
     e4,
     e5,
+]
+
+const r1 = new RoomModel('r1', 'Room 1', 'low', 15, 65, 15);
+const r2 = new RoomModel('r2', 'Room 2', 'high', 20, 68, 25);
+
+export const ROOMS = [
+    r1, 
+    r2,
 ]
