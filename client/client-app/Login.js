@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
-import { styles, textStyles } from "./styles";
+import { styles, textStyles, Colors } from "./styles";
 
 import {
   StyleSheet,
@@ -71,7 +71,7 @@ const loginStyles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginTop: 40,
-    backgroundColor: "#33CA7F",
+    backgroundColor: Colors.green,
   },
 
   loginText: {

@@ -7,7 +7,7 @@ import {
   View,
   ScrollView
 } from "react-native";
-import { styles, textStyles } from "./styles";
+import { styles, textStyles, Colors } from "./styles";
 
 const Settings = ({navigation}) => {
   return (
@@ -18,7 +18,7 @@ const Settings = ({navigation}) => {
       <ScrollView>
         <View style={settingsStyle.btnFlex}>
           <View style={styles.cell}>
-            <Text style={settingsStyle.titleText}>John Garrett</Text>
+            <Text style={textStyles.h2}>John Garrett</Text>
             <Text style={textStyles.paragraph}>jgarrett47@gatech.edu</Text>
           </View>
 
@@ -47,10 +47,6 @@ const Settings = ({navigation}) => {
   );
 }
 const settingsStyle = StyleSheet.create({
-  titleText: {
-    fontWeight: "500",
-    fontSize: 20
-  },
   logoutText: {
     alignItems: "center",
     justifyContent: "space-between",
@@ -65,7 +61,7 @@ const settingsStyle = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginTop: 40,
-    backgroundColor: "#880808",
+    backgroundColor: Colors.red,
   },
   btnFlex: {
     flex: 1,
