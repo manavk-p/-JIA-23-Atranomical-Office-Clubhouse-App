@@ -1,4 +1,3 @@
-import styles from "./styles";
 import React from "react";
 import {
   Text,
@@ -8,6 +7,7 @@ import {
   View,
   ScrollView
 } from "react-native";
+import { styles } from "./styles";
 
 const Settings = ({navigation}) => {
   return (

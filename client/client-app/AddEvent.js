@@ -1,5 +1,5 @@
 import { View, SafeAreaView, Pressable, Text, TextInput, StyleSheet } from "react-native";
-import styles from "./styles";
+import { styles } from "./styles";
 const AddEvent = () => {
     return (
         <SafeAreaView style={styles.eventScreenContainer}>

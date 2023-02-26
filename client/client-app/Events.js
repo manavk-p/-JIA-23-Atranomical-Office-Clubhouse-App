@@ -1,5 +1,5 @@
-import styles from "./styles";
-import {React, useState} from "react";
+import { styles } from "./styles";
+import {React } from "react";
 import {
   Text,
   SafeAreaView,
