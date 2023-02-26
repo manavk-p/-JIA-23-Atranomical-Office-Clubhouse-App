@@ -23,9 +23,11 @@ const mockData = {
     ]
 }
 
+
 const Rooms = ({}) => {
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.safeViewContainer}>
+
       <Text style={styles.titleText}>
         {'Rooms'}
       </Text>

@@ -6,14 +6,14 @@ import {
   SafeAreaView,
 } from "react-native";
 
-const Home = ({}) => {
+const Desks = ({}) => {
   return (
-    <SafeAreaView style={styles.safeViewContainer}>
+    <SafeAreaView>
       <Text style={styles.titleText}>
-        {'Home'}
+        {'Desks'}
       </Text>
     </SafeAreaView>
   );
 }
 
-export default Home;
+export default Desks;
