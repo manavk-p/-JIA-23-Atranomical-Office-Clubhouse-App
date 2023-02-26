@@ -4,12 +4,12 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import Home from "./Home";
 import Events from "./Events";
-import Map from "./Map";
+//import Map from "./Map";
 import Settings from "./Settings";
+import Desks from "./Desks";
+import Rooms from "./Rooms"
+import Management from "./Management";
 
-import EventRoot from "./EventRoot";
-
-import Rooms from "./Rooms";
 
 
 const Tab = createBottomTabNavigator();
@@ -42,16 +42,15 @@ const TabRoot = () => {
         >
         <Tab.Screen name="Home" component={Home} />
 
-        <Tab.Screen name="Events" component={EventRoot} />
-        <Tab.Screen name="Map" component={Map} />
-
-
-        <Tab.Screen name="Rooms" component={Rooms} />
-
+        <Tab.Screen name="Events" component={Events} />
+        <Tab.Screen name="Rooms" component={Rooms}/>
+        <Tab.Screen name="Desks" component={Desks} />
         <Tab.Screen name="Settings" component={Settings} />
+        <Tab.Screen name="Management" component={Management}/>
       </Tab.Navigator>
   );
 }
 
 
 export default TabRoot;
+ 
