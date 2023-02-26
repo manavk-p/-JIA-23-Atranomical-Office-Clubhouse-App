@@ -11,7 +11,7 @@ import {
 
 const Settings = ({navigation}) => {
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.safeViewContainer}>
       <Text style={styles.titleText}>
         {'Settings'}
       </Text>
