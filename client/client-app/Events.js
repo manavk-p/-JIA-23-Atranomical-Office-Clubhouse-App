@@ -5,10 +5,14 @@ import {
   SafeAreaView,
   View,
   Pressable,
-  FlatList
+  FlatList,
+  AppRegistry
 } from "react-native";
 import EventComponent from "./EventComponent";
 import { EVENTS } from "./data/DummyData";
+import { APPDATA } from "./data/AppData";
+
+
 
 
 
@@ -48,7 +52,6 @@ const Events = ({navigation}) => {
             </Text>
 
           </Pressable>
-
         </View>
         <View style={styles.headerSeperator}>
           
@@ -56,7 +59,7 @@ const Events = ({navigation}) => {
       </View>
       <View style={styles.eventListContainer}>
         <FlatList showsVerticalScrollIndicator={false}
-          data={EVENTS}
+          data={APPDATA.getEventList()}
           keyExtractor={(item) => item.id}
           renderItem={renderEventComponent}
         />
