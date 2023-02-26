@@ -31,11 +31,7 @@ const EditEvent = ({navigation, id}) => {
                     {"Test + " + id}
                 </Text>
             </TouchableOpacity>
-            {/* <View>
-                <Image source={require('../client-app/assets/images/office_potluck.jpg')} style={{height: imgHeight, width: 365}}>
-
-            </Image>
-            </View> */}
+            
             
             
                 <View style={styles.eventEditContainer}>
