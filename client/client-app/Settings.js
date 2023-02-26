@@ -5,7 +5,8 @@ import {
   SafeAreaView,
   TouchableOpacity,
   StyleSheet,
-  View
+  View,
+  ScrollView
 } from "react-native";
 
 const Settings = ({navigation}) => {
@@ -14,8 +15,24 @@ const Settings = ({navigation}) => {
       <Text style={styles.titleText}>
         {'Settings'}
       </Text>
-
+      <ScrollView>
         <View style={settingsStyle.btnFlex}>
+          <View style={styles.cell}>
+            <Text style={settingsStyle.titleText}>John Garrett</Text>
+            <Text style={styles.paragraph}>jgarrett47@gatech.edu</Text>
+          </View>
+
+          <View style={styles.cell}>
+            <Text style={settingsStyle.titleText}>User Preferences</Text>
+            <Text style={styles.paragraph}>Noise Level: Low</Text>
+            <Text style={styles.paragraph}>Temperature: 70ºF</Text>
+          </View>
+
+          <View style={styles.cell}>
+            <Text style={settingsStyle.titleText}>Location Preferences</Text>
+            <Text style={styles.paragraph}>Room 410A - Tower 1</Text>
+            <Text style={styles.paragraph}>Room 410B - Tower 1</Text>
+          </View>
           <TouchableOpacity 
             style={settingsStyle.logoutBtn}
             onPress={() =>
@@ -25,10 +42,15 @@ const Settings = ({navigation}) => {
           <Text style={settingsStyle.logoutText}>Logout</Text>
           </TouchableOpacity>
         </View>
+      </ScrollView>
     </SafeAreaView>
   );
 }
 const settingsStyle = StyleSheet.create({
+  titleText: {
+    fontWeight: "500",
+    fontSize: 20
+  },
   logoutText: {
     alignItems: "center",
     justifyContent: "space-between",
@@ -37,7 +59,7 @@ const settingsStyle = StyleSheet.create({
     fontSize: 14
   },
   logoutBtn: {
-    width: "80%",
+    width: "90%",
     borderRadius: 16,
     height: 50,
     alignItems: "center",

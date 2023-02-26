@@ -32,7 +32,6 @@ const Events = ({navigation}) => {
 
 
 
-
   return (
     <SafeAreaView style={styles.eventScreenContainer}>
       <View>
@@ -40,11 +39,15 @@ const Events = ({navigation}) => {
           <Text style={styles.titleText}>
             {'Events'}
           </Text>
+
           <Pressable onPress={addEventHandler}>
+
             <Text style={styles.addEventText}>
                 Add
             </Text>
+
           </Pressable>
+
         </View>
         <View style={styles.headerSeperator}>
           

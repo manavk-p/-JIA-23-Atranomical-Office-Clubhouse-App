@@ -31,6 +31,9 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginLeft: 18
   },
+  paragraph: {
+    fontSize: 12,
+  },
   addEventText: {
     fontSize: 18,
     marginTop: 9,
@@ -107,9 +110,22 @@ const styles = StyleSheet.create({
     marginRight: 10,
     marginLeft: -13
   },
+
   eventScreenContainer: {
     flex: .88
   },
+
+  cell: {
+    backgroundColor: '#D9D9D9',
+    shadowColor: '#171717',
+    shadowOffset: {width: -2, height: 4},
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
+    width: "90%",
+    padding: 10,
+    marginBottom: 16
+  }
+
 });
 
 export default styles;
