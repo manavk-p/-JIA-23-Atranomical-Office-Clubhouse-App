@@ -7,17 +7,14 @@ import { useNavigation } from "@react-navigation/native";
 const EventComponent = ({name, date, time, imgSrc, description, id}) => {
     
     const [imgHeight, setImgHeight] = useState(0);
-    const [displayDescription, setDisplayDescription] = useState(true);
-    const [timeMarginBottom, setTimeMarginBottom] = useState(30);
+    const [descriptionText, setDescriptionText] = useState("");
     function onPressHandler() {
         if (imgHeight===150) {
             setImgHeight(0);
-            setDisplayDescription(true);
-            setTimeMarginBottom(30);
+            setDescriptionText("");
         } else {
             setImgHeight(150);
-            setDisplayDescription(false)
-            setTimeMarginBottom(0);
+            setDescriptionText(description);
         }
     }
     
@@ -40,13 +37,17 @@ const EventComponent = ({name, date, time, imgSrc, description, id}) => {
                     <Text style={styles.eventTextSecondary}>
                         {date}
                     </Text>
-                    <Text style={[styles.eventTextSecondary, {marginBottom: timeMarginBottom} ]}>
+                    <Text style={styles.eventTextSecondary}>
                         {time}
                     </Text>
                     </View>
+
+                    <View>
                     <Text style={{ marginBottom: 15, marginTop: 5}}> 
-                        {description}
+                        {descriptionText}
+
                     </Text>
+                    </View>
 
                 </View>
                 <View style={styles.eventRightContainer}>
