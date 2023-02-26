@@ -22,6 +22,9 @@ const Colors = {
   red: "#E84855",
   blue: "#0081A7",
   black: "#32322C",
+  shadow: "#171717",
+  cellBg: "#D9D9D9",
+  inputBg: "#e0e0e0",
 };
 
 const styles = StyleSheet.create({
@@ -37,7 +40,7 @@ const styles = StyleSheet.create({
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0
   },
   inputView: {
-    backgroundColor: "#e0e0e0",
+    backgroundColor: Colors.inputBg,
     borderRadius: 8,
     borderWidth: 1,
     width: "90%",
@@ -85,17 +88,17 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   headerSeperator: {
-    backgroundColor: 'black',
+    backgroundColor: Colors.black,
     height: 1,
     marginBottom: 10
   },
   eventComponentContainer: {
     backgroundColor: '#D9D9D9',
     width: 365,
-    borderColor: 'black',
+    borderColor: Colors.black,
     borderWidth: 1,
     marginBottom: 10,
-    shadowColor: '#171717',
+    shadowColor: Colors.shadow,
     shadowOffset: {width: -2, height: 4},
     shadowOpacity: 0.2,
     shadowRadius: 3,
@@ -129,8 +132,8 @@ const styles = StyleSheet.create({
   },
 
   cell: {
-    backgroundColor: '#D9D9D9',
-    shadowColor: '#171717',
+    backgroundColor: Colors.cellBg,
+    shadowColor: Colors.shadow,
     shadowOffset: {width: -2, height: 4},
     shadowOpacity: 0.2,
     shadowRadius: 3,
