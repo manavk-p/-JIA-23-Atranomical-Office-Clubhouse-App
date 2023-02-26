@@ -16,6 +16,14 @@ const textStyles = StyleSheet.create({
   }
 });
 
+const Colors = {
+  green: "##94C9A9",
+  palePurple: "#F6E4F6",
+  red: "#E84855",
+  blue: "#0081A7",
+  black: "#32322C",
+};
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -133,4 +141,4 @@ const styles = StyleSheet.create({
 });
 
 
-export { textStyles, styles };
+export { textStyles, Colors, styles };
