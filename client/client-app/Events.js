@@ -29,7 +29,7 @@ const Events = ({}) => {
 
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.SafeAreaView}>
       <View>
         <View style={styles.screenHeader}>
           <Text style={styles.titleText}>
