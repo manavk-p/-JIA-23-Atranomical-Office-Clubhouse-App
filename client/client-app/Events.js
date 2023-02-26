@@ -33,7 +33,8 @@ const Events = ({navigation}) => {
 
 
   return (
-    <SafeAreaView style={styles.eventScreenContainer}>
+    <SafeAreaView style={styles.SafeAreaView}>
+
       <View>
         <View style={styles.screenHeader}>
           <Text style={styles.titleText}>

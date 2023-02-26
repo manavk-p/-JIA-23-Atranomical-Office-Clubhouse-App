@@ -1,4 +1,5 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Platform, StatusBar } from "react-native";
+
 
 const styles = StyleSheet.create({
   container: {
@@ -6,8 +7,12 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "space-between",
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0
   },
-
+  safeViewContainer: {
+    flex: 1,
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0
+  },
   inputView: {
     backgroundColor: "#e0e0e0",
     borderRadius: 8,
@@ -127,5 +132,6 @@ const styles = StyleSheet.create({
   }
 
 });
+
 
 export default styles;
