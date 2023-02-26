@@ -24,8 +24,13 @@ function renderEventComponent(itemData) {
 }
 
 
+const Events = ({navigation}) => {
 
-const Events = ({}) => {
+  function addEventHandler() {
+    navigation.navigate("AddEvent");
+  }
+
+
 
 
   return (
@@ -35,10 +40,11 @@ const Events = ({}) => {
           <Text style={styles.titleText}>
             {'Events'}
           </Text>
+          <Pressable onPress={addEventHandler}>
             <Text style={styles.addEventText}>
-              Add
+                Add
             </Text>
-
+          </Pressable>
         </View>
         <View style={styles.headerSeperator}>
           
