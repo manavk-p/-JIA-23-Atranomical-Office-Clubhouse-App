@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { SafeAreaView, Text, View, Image, Pressable } from "react-native";
+import { SafeAreaView, Text, View, Image, Pressable, TouchableOpacity } from "react-native";
 import styles from "./styles";
+import { useNavigation } from "@react-navigation/native";
 
 
-
-const EventComponent = ({name, date, time, imgSrc, description}) => {
+const EventComponent = ({name, date, time, imgSrc, description, id}) => {
     
     const [imgHeight, setImgHeight] = useState(0);
     const [displayDescription, setDisplayDescription] = useState(true);
@@ -20,16 +20,17 @@ const EventComponent = ({name, date, time, imgSrc, description}) => {
             setTimeMarginBottom(0);
         }
     }
-
+    
+    const navigation = useNavigation();
     return(
-        <SafeAreaView>
+        <SafeAreaView style={styles.SafeAreaView}>
             <Pressable onPress={onPressHandler}>
             <View>
                 <Image source={require('../client-app/assets/images/office_potluck.jpg')} style={{height: imgHeight, width: 365}}>
 
                 </Image>
             </View>
-
+            
             <View style={styles.eventComponentContainer}>
                 <View style={styles.eventLeftContainer}>
                     <View>
@@ -49,9 +50,16 @@ const EventComponent = ({name, date, time, imgSrc, description}) => {
 
                 </View>
                 <View style={styles.eventRightContainer}>
+                <TouchableOpacity 
+                    onPress={() =>
+                        navigation.navigate('EditEvent', {id: id})
+                    }
+                    >
                     <Text style={styles.eventTextSecondary}>
-                        Edit
+                       {"Edit +" + id}
                     </Text>
+                </TouchableOpacity>
+                    
                 </View>
             </View>
             </Pressable>
