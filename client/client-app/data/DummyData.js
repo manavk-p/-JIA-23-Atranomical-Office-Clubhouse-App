@@ -1,4 +1,5 @@
 import EventModel from "../models/EventModel";
+import SettingsModel from "../models/SettingsModel";
 
 const e1 = new EventModel('e1', 'Office Potluck', '10-24-22', '1:00 PM', null, "This is a placeholder description to test the client application. Please RSVP at least a day before each event.");
 const e2 = new EventModel('e2', 'Coffee and Donuts', '10-26-22', '9:30 AM', null, "This is a placeholder description to test the client application. Please RSVP at least a day before each event.");
@@ -14,3 +15,5 @@ export const EVENTS = [
     e4,
     e5,
 ]
+
+const SETTINGS = new SettingsModel('s1', 'John Garrett', 'jgarrett47@gatech.edu', 'Low', 70, 'Room 401A - Tower 1');
