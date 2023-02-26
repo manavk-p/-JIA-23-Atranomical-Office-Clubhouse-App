@@ -115,6 +115,11 @@ const styles = StyleSheet.create({
     marginRight: 10,
     marginLeft: -13
   },
+
+  eventScreenContainer: {
+    flex: .88
+  },
+
   cell: {
     backgroundColor: '#D9D9D9',
     shadowColor: '#171717',
@@ -125,6 +130,7 @@ const styles = StyleSheet.create({
     padding: 10,
     marginBottom: 16
   }
+
 });
 
 
