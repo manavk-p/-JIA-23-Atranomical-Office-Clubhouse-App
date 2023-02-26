@@ -18,7 +18,7 @@ const Settings = ({navigation}) => {
       <ScrollView>
         <View style={settingsStyle.btnFlex}>
           <View style={styles.cell}>
-            <Text style={settingsStyle.titleText}>John Garrett</Text>
+            <Text style={textStyles.h2}>John Garrett</Text>
             <Text style={textStyles.paragraph}>jgarrett47@gatech.edu</Text>
           </View>
 
