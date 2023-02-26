@@ -9,7 +9,7 @@ import {
 const Home = ({}) => {
   return (
     <SafeAreaView style={styles.safeViewContainer}>
-      <Text style={textStyles.titleText}>
+      <Text style={textStyles.h1}>
         {'Home'}
       </Text>
     </SafeAreaView>

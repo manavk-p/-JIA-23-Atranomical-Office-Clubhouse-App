@@ -4,6 +4,7 @@ const textStyles = StyleSheet.create({
   h1: {
     fontSize: 28,
     fontWeight: "bold",
+    paddingHorizontal: 12
   },
   h2: {
     fontSize: 22,
@@ -11,7 +12,7 @@ const textStyles = StyleSheet.create({
   },
   paragraph: {
     fontSize: 14,
-    fontWeight: "regular",
+    fontWeight: "normal",
   }
 });
 
@@ -74,7 +75,6 @@ const styles = StyleSheet.create({
     marginTop: 30,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: -12
   },
   headerSeperator: {
     backgroundColor: 'black',

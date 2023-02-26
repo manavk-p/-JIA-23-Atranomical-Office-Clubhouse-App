@@ -1,11 +1,11 @@
 import { View, SafeAreaView, Pressable, Text, TextInput, StyleSheet } from "react-native";
-import { styles } from "./styles";
+import { styles, textStyles } from "./styles";
 const AddEvent = () => {
     return (
         <SafeAreaView style={styles.eventScreenContainer}>
         <View>
           <View style={styles.screenHeader}>
-            <Text style={styles.titleText}>
+            <Text style={textStyles.h1}>
               {'Create Event'}
             </Text>
           </View>

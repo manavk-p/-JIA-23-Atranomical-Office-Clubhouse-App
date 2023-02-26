@@ -1,4 +1,4 @@
-import { styles } from "./styles";
+import { styles, textStyles } from "./styles";
 import {React } from "react";
 import {
   Text,
@@ -37,7 +37,7 @@ const Events = ({navigation}) => {
 
       <View>
         <View style={styles.screenHeader}>
-          <Text style={styles.titleText}>
+          <Text style={textStyles.h1}>
             {'Events'}
           </Text>
 

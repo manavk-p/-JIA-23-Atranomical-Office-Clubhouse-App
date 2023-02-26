@@ -1,5 +1,5 @@
 import React from "react";
-import { styles } from "./styles";
+import { textStyles } from "./styles";
 
 import {
   Text,
@@ -9,7 +9,7 @@ import {
 const Map = ({}) => {
   return (
     <SafeAreaView>
-      <Text style={styles.titleText}>
+      <Text style={textStyles.h1}>
         {'Map'}
       </Text>
     </SafeAreaView>

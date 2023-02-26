@@ -4,7 +4,7 @@ import { styles } from "./styles";
 
 
 
-const EventComponent = ({name, date, time, imgSrc, description}) => {
+const EventComponent = ({name, date, time, description}) => {
     
     const [imgHeight, setImgHeight] = useState(0);
     const [descriptionText, setDescriptionText] = useState("");
