@@ -55,29 +55,17 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     width: "100%"
   },
-
-  titleText: {
-    fontSize: 28,
-    paddingBottom: 28,
-    fontWeight: "bold",
-    marginLeft: 18
-  },
-  paragraph: {
-    fontSize: 12,
-  },
   addEventText: {
     fontSize: 18,
     marginTop: 9,
     marginRight: 10
   },
-
   TextInput: {
     height: 50,
     flex: 1,
     padding: 10,
     width: "100%"
   },
-
   forgot_button: {
     height: 30,
     marginBottom: 30,

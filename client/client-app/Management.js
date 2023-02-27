@@ -2,25 +2,18 @@ import React from "react";
 import {
   Text,
   SafeAreaView,
-  StyleSheet,
 } from "react-native";
 
-import { styles } from "./styles";
+import { textStyles } from "./styles";
 
 const Management = ({navigation}) => {
   return (
     <SafeAreaView>
-      <Text style={styles.titleText}>
+      <Text style={textStyles.h1}>
         {'Management'}
       </Text>
     </SafeAreaView>
   );
 }
-const settingsStyle = StyleSheet.create({
-  titleText: {
-    fontWeight: "500",
-    fontSize: 20
-  }
-})
 
 export default Management;
