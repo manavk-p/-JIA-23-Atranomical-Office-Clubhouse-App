@@ -55,6 +55,25 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     width: "100%"
   },
+
+  forgotBtnInputPane: {
+    flex: 1,
+    alignItems: "center",
+    marginTop:50,
+    justifyContent: "center",
+    width: "100%"
+  },
+
+  titleText: {
+    fontSize: 28,
+    paddingBottom: 28,
+    fontWeight: "bold",
+    marginLeft: 18
+  },
+  paragraph: {
+    fontSize: 12,
+  },
+
   addEventText: {
     fontSize: 18,
     marginTop: 9,
@@ -66,10 +85,24 @@ const styles = StyleSheet.create({
     padding: 10,
     width: "100%"
   },
+  
+  forgotBtn: {
+    justifyContent: 'center',
+    textAlign: 'left',
+    marginLeft: 15
+  },
+
+  forgotBtnInput: {
+    height: 50,
+    flex: 1,
+    padding: 10,
+    width: "100%"
+
   forgot_button: {
     height: 30,
     marginBottom: 30,
   },
+  
   screenHeader: {
     marginTop: 30,
     flexDirection: 'row',

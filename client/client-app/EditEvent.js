@@ -26,19 +26,13 @@ const EditEvent = ({navigation, id}) => {
                     navigation.navigate('TabRoot', {name: 'Jane'})
                 }
             >
-
-                <Text style={styles.eventTextSecondary}>
+                <Text style={textStyles.h2}>
                     {"Test + " + id}
                 </Text>
             </TouchableOpacity>
-            
-            
-            
                 <View style={styles.eventEditContainer}>
                 <ScrollView>
-                    <View style={{
-                        
-                    }}>
+                    <View style={{}}>
                     <TextInput 
                     onChange={onChangeName}
                     value={name}
@@ -60,8 +54,8 @@ const EditEvent = ({navigation, id}) => {
                         multiline={true}
                         numberOfLines={10}
                         onChangeText={onChangeDesc}
-                        value={desc}
-                        style={{ textAlignVertical: 'top',
+                        value = {desc}
+                        style = {{textAlignVertical: 'top',
                                 height: 250,
                                 borderWidth: 1,
                                 borderColor: 'black',
@@ -69,14 +63,8 @@ const EditEvent = ({navigation, id}) => {
                                 paddingLeft: 10,
                                 }}/>
                      </View>
-                        
-             
-
                 </ScrollView> 
                 </View>
-             
-            
-
         </SafeAreaView>
   );
 }
