@@ -1,5 +1,5 @@
 import { View, SafeAreaView, Pressable, Text, TextInput, StyleSheet } from "react-native";
-import { styles, textStyles } from "./styles";
+import { styles, textStyles, Colors } from "./styles";
 const AddEvent = () => {
     return (
         <SafeAreaView style={styles.eventScreenContainer}>
@@ -60,7 +60,7 @@ const addEventStyles = StyleSheet.create({
     textEntryContainerMain: {
         width: 300,
         height: 35,
-        backgroundColor: '#D9D9D9',
+        backgroundColor: Colors.inputBg,
         marginBottom: 15
     },
     textEntryFont: {
@@ -71,11 +71,11 @@ const addEventStyles = StyleSheet.create({
     textEntryContainerSecondary: {
         width: 300,
         height: 260,
-        backgroundColor: '#D9D9D9',
+        backgroundColor: Colors.inputBg,
         marginBottom: 15
     },
     createButton: {
-        backgroundColor: '#269326',
+        backgroundColor: Colors.green,
         height: 75,
         width: 300,
         borderRadius: 10,
