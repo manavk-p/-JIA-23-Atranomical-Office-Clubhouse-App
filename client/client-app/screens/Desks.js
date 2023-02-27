@@ -1,4 +1,4 @@
-import styles from "./styles";
+import styles from "../styles";
 import React from "react";
 
 import {
@@ -6,14 +6,14 @@ import {
   SafeAreaView,
 } from "react-native";
 
-const Map = ({}) => {
+const Desks = ({}) => {
   return (
     <SafeAreaView>
       <Text style={styles.titleText}>
-        {'Map'}
+        {'Desks'}
       </Text>
     </SafeAreaView>
   );
 }
 
-export default Map;
+export default Desks;

@@ -1,4 +1,4 @@
-import styles from "./styles";
+import styles from "../styles";
 import {React, useState} from "react";
 import {
   Text,
@@ -8,7 +8,7 @@ import {
   FlatList
 } from "react-native";
 import EventComponent from "./EventComponent";
-import { EVENTS } from "./data/DummyData";
+import { EVENTS } from "../data/DummyData";
 
 
 

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { SafeAreaView, Text, View, TextInput, Image, TouchableOpacity, ScrollView} from "react-native";
-import styles from "./styles";
+import styles from "../styles";
 import { EVENTS } from "./Events"
 
 
