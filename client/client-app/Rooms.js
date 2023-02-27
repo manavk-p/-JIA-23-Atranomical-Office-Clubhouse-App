@@ -1,34 +1,15 @@
-import styles from "./styles";
 import React from "react";
+import { styles, textStyles } from "./styles";
 
 import {
   Text,
   SafeAreaView,
 } from "react-native";
 
-const mockData = {
-    rooms: [
-        {
-            noiseLevel: 'low',
-            occupancyLimit: 10,
-            temperature: 65,
-            numDesks: 10,
-        },
-        {
-            noiseLevel: 'high',
-            occupancyLimit: 15,
-            temperature: 68,
-            numDesks: 20,
-        }
-    ]
-}
-
-
 const Rooms = ({}) => {
   return (
     <SafeAreaView style={styles.safeViewContainer}>
-
-      <Text style={styles.titleText}>
+      <Text style={textStyles.h1}>
         {'Rooms'}
       </Text>
     </SafeAreaView>

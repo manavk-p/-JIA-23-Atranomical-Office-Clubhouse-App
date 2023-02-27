@@ -7,7 +7,7 @@ import Events from "./Events";
 //import Map from "./Map";
 import Settings from "./Settings";
 import Desks from "./Desks";
-import Rooms from "./Rooms"
+import Rooms from "./rooms/Rooms"
 import Management from "./Management";
 
 

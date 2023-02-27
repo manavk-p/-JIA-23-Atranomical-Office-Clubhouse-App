@@ -1,7 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React, { useState } from "react";
-import styles from "./styles";
+import { styles, textStyles, Colors } from "./styles";
 
 import {
   StyleSheet,
@@ -27,7 +27,7 @@ const Login = ({navigation}) => {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar style="auto" />
-      <Text style={styles.titleText}>
+      <Text style={textStyles.h1}>
         {'Astranomical Office'}
       </Text>
 
@@ -59,76 +59,33 @@ const Login = ({navigation}) => {
           </Pressable>
 
         <TouchableOpacity 
-          style={styles.loginBtn}
+          style={loginStyles.loginBtn}
           onPress={() =>
             navigation.navigate('TabRoot', {name: 'Jane'})
           }
           disabled={!email || !password}
         >
-          <Text style={styles.loginText}>Login</Text>
+          <Text style={loginStyles.loginText}>Login</Text>
         </TouchableOpacity>
       </KeyboardAvoidingView>
     </SafeAreaView>
   );
 }
 
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: "#fff",
-//     alignItems: "center",
-//     justifyContent: "space-between",
-//     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0
-//   },
+const loginStyles = StyleSheet.create({
+  loginBtn: {
+    width: "90%",
+    borderRadius: 16,
+    height: 50,
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 40,
+    backgroundColor: Colors.green,
+  },
 
-//   inputView: {
-//     backgroundColor: "#e0e0e0",
-//     borderRadius: 8,
-//     borderWidth: 1,
-//     width: "90%",
-//     height: 45,
-//     marginBottom: 20,
-//     alignItems: "center",
-//   },
-
-//   inputPane: {
-//     flex: 1,
-//     alignItems: "center",
-//     justifyContent: "center",
-//     width: "100%"
-//   },
-
-//   titleText: {
-//     fontSize: 28,
-//     paddingBottom: 28,
-//     fontWeight: "bold"
-//   },
-
-//   TextInput: {
-//     height: 50,
-//     flex: 1,
-//     padding: 10,
-//     width: "100%"
-//   },
-
-//   forgot_button: {
-//     height: 30,
-//     marginBottom: 30,
-//   },
-
-//   loginBtn: {
-//     width: "90%",
-//     borderRadius: 16,
-//     height: 50,
-//     alignItems: "center",
-//     justifyContent: "center",
-//     marginTop: 40,
-//     backgroundColor: "#33CA7F",
-//   },
-
-//   loginText: {
-//     fontWeight: "500",
-//   }
-// });
+  loginText: {
+    fontWeight: "500",
+  },
+})
 
 export default Login;

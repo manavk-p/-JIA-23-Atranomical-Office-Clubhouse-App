@@ -1,14 +1,18 @@
-import styles from "./styles";
-import {React, useState} from "react";
+import { styles, textStyles } from "./styles";
+import {React } from "react";
 import {
   Text,
   SafeAreaView,
   View,
   Pressable,
-  FlatList
+  FlatList,
+  AppRegistry
 } from "react-native";
 import EventComponent from "./EventComponent";
 import { EVENTS } from "./data/DummyData";
+import { APPDATA } from "./data/AppData";
+
+
 
 
 
@@ -37,7 +41,7 @@ const Events = ({navigation}) => {
 
       <View>
         <View style={styles.screenHeader}>
-          <Text style={styles.titleText}>
+          <Text style={textStyles.h1}>
             {'Events'}
           </Text>
 
@@ -48,7 +52,6 @@ const Events = ({navigation}) => {
             </Text>
 
           </Pressable>
-
         </View>
         <View style={styles.headerSeperator}>
           
@@ -56,7 +59,7 @@ const Events = ({navigation}) => {
       </View>
       <View style={styles.eventListContainer}>
         <FlatList showsVerticalScrollIndicator={false}
-          data={EVENTS}
+          data={APPDATA.getEventList()}
           keyExtractor={(item) => item.id}
           renderItem={renderEventComponent}
         />
