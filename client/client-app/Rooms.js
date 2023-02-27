@@ -1,19 +1,19 @@
 import React from "react";
-import { textStyles } from "./styles";
+import { styles, textStyles } from "./styles";
 
 import {
   Text,
   SafeAreaView,
 } from "react-native";
 
-const Map = ({}) => {
+const Rooms = ({}) => {
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.safeViewContainer}>
       <Text style={textStyles.h1}>
-        {'Map'}
+        {'Rooms'}
       </Text>
     </SafeAreaView>
   );
 }
 
-export default Map;
+export default Rooms;
