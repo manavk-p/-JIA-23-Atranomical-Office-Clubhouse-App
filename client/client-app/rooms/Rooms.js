@@ -1,4 +1,4 @@
-import styles from "../styles";
+import { styles, textStyles } from "../styles";
 import React from "react";
 
 import {
@@ -25,7 +25,7 @@ const Rooms = ({ }) => {
     return (
         <SafeAreaView style={styles.safeViewContainer}>
 
-            <Text style={styles.titleText}>
+            <Text style={textStyles.h1}>
                 {'Rooms'}
             </Text>
             <View style={styles.eventListContainer}>
