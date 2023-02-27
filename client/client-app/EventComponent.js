@@ -57,7 +57,7 @@ const EventComponent = ({name, date, time, imgSrc, description, id}) => {
                     }
                     >
                     <Text style={styles.eventTextSecondary}>
-                       {"Edit +" + id}
+                       {"Edit"}
                     </Text>
                 </TouchableOpacity>
                 </View>
