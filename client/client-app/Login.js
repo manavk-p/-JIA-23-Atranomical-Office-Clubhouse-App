@@ -1,4 +1,5 @@
 import { StatusBar } from "expo-status-bar";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React, { useState } from "react";
 import { styles, textStyles, Colors } from "./styles";
 
@@ -10,9 +11,15 @@ import {
   TouchableOpacity,
   SafeAreaView,
   KeyboardAvoidingView,
+  Pressable
 } from "react-native";
 
+const LoginStack = createNativeStackNavigator();
 const Login = ({navigation}) => {
+
+  function forgotPasswordHandler() {
+    navigation.navigate("ForgotPassword");
+  }
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -45,9 +52,11 @@ const Login = ({navigation}) => {
           />
         </View>
 
-        <TouchableOpacity>
-          <Text style={styles.forgot_button}>Forgot Password?</Text>
-        </TouchableOpacity>
+        <Pressable onPress={forgotPasswordHandler}>
+          <Text style={styles.forgot_button}>
+              Forgot Password
+          </Text>
+          </Pressable>
 
         <TouchableOpacity 
           style={loginStyles.loginBtn}
