@@ -60,7 +60,6 @@ const EventComponent = ({name, date, time, imgSrc, description, id}) => {
                        {"Edit +" + id}
                     </Text>
                 </TouchableOpacity>
-                    
                 </View>
             </View>
             </Pressable>
