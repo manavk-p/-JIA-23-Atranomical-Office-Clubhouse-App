@@ -140,7 +140,28 @@ const styles = StyleSheet.create({
     width: "90%",
     padding: 10,
     marginBottom: 16
-  }
+  },
+  eventEditContainer: {
+    backgroundColor: '#D9D9D9',
+    borderColor: 'black',
+    borderWidth: 1,
+    shadowColor: '#171717',
+    shadowOffset: {width: -2, height: 4},
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
+    justifyContent: 'space-between',
+    padding: 10,
+    
+    flexDirection: 'column'
+  },
+
+  singleLineEdit: { textAlignVertical: 'top',
+  borderWidth: 1,
+  borderColor: 'black',
+  paddingRight: 10,
+  paddingLeft: 10,
+  marginBottom: 20,
+  },
 });
 
 
