@@ -71,11 +71,7 @@ const loginStyles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginTop: 40,
-<<<<<<< HEAD
-    backgroundColor: "#33CA7F",
-=======
     backgroundColor: Colors.green,
->>>>>>> main
   },
 
   loginText: {
