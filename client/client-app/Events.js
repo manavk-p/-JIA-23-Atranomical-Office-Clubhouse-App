@@ -1,5 +1,5 @@
-import styles from "./styles";
-import {React, useState} from "react";
+import { styles, textStyles } from "./styles";
+import {React } from "react";
 import {
   Text,
   SafeAreaView,
@@ -41,7 +41,7 @@ const Events = ({navigation}) => {
 
       <View>
         <View style={styles.screenHeader}>
-          <Text style={styles.titleText}>
+          <Text style={textStyles.h1}>
             {'Events'}
           </Text>
 

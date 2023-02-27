@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { SafeAreaView, Text, View, TextInput, Image, TouchableOpacity, ScrollView} from "react-native";
-import styles from "./styles";
+import { styles, textStyles } from "./styles";
 import { EVENTS } from "./Events"
 
 
@@ -16,7 +16,7 @@ const EditEvent = ({navigation, id}) => {
     
     return (
         <SafeAreaView style={styles.safeViewContainer}>
-            <Text style={styles.titleText}>
+            <Text style={textStyles.h1}>
                 {'Edit Event'}
             </Text>
             <TouchableOpacity  
