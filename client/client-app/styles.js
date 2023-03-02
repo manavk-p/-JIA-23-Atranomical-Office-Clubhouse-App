@@ -97,6 +97,7 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 10,
     width: "100%"
+  },
 
   forgot_button: {
     height: 30,

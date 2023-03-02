@@ -5,6 +5,7 @@ import EditEvent from './EditEvent';
 import Login from "./Login";
 import TabRoot from "./TabRoot";
 import ForgotPassword from "./ForgotPassword"
+import AddEvent from './AddEvent';
 
 const Stack = createNativeStackNavigator();
 
