@@ -106,7 +106,7 @@ const EditBooking = ({room, navigation, handleChange}) => {
                     <TouchableOpacity
                         style={roomDetailStyles.removeButton}
                         onPress={() => {
-                            room.bookings = room.bookings.filter(b => b.start != start && b.end != end) // LOL!
+                            room.bookings = room.bookings.filter(b => b.id != booking.id)
                             handleChange(room)
                         }}
                     >
@@ -167,11 +167,8 @@ const RoomDetail = ({ route, navigation }) => {
                     Number of Desks: {room.numDesks}
                 </Text>
             </View>
-            { 
-                room.bookings.length > 0 ?
-                    <EditBooking navigation={navigation} room={room} handleChange={handleChange}/> 
-                    : <BookRoom navigation={navigation} handleChange={handleChange} room={room}/> 
-            }
+            <EditBooking navigation={navigation} room={room} handleChange={handleChange}/> 
+            <BookRoom navigation={navigation} handleChange={handleChange} room={room}/> 
             <TouchableOpacity
                 style={roomDetailStyles.doneButton}
                 onPress={() => navigation.goBack()}
