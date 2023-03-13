@@ -39,11 +39,9 @@ const Rooms = ({ navigation }) => {
     const [rooms, setRooms] = React.useState(ROOMS);
 
     function handleChange(newValue) {
-        console.log("new value", newValue)
-        // TODO: add room to array
-        newRooms = ROOMS.filter(r => r.name != newValue.name)
+        newRooms = ROOMS.filter(r => r.id != newValue.id)
         newRooms.push(newValue)
-      setRooms(newRooms);
+        setRooms(newRooms);
         params = {
             room: newValue,
             onRoomBook: onRoomBook,

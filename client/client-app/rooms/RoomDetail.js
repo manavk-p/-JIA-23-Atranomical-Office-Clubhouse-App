@@ -58,12 +58,27 @@ const BookRoom = ({room, handleChange, navigation}) => {
 
 const EditBooking = ({room, navigation, handleChange}) => {
     const dateString = (date) => date.getMonth() + "/" + date.getDay() + " " + date.getHours() + ":" + date.getMinutes()
-    const BookingEntry = (booking) => {
-        const { user, start, end } = booking.item;
+    const BookingEntry = (bookingItem) => {
+        let booking = bookingItem.item
+        const { user, start, end } = booking;
 
-        const updateBooking = () => {
-            booking.start = start
+        const updateBookingStart = (event, date) => {
+            console.log("id", booking.id, booking)
+            room.bookings = room.bookings.filter(b => b.id != booking.id)
+            booking.user = user
+            booking.start = date
             booking.end = end
+            room.bookings.push(booking)
+            handleChange(room)
+        }
+        const updateBookingEnd = (event, date) => {
+            console.log("id", booking.id, booking)
+            room.bookings = room.bookings.filter(b => b.id != booking.id)
+            booking.user = user
+            booking.start = start
+            booking.end = date
+            room.bookings.push(booking)
+            handleChange(room)
         }
         return (
             <View>
@@ -74,19 +89,19 @@ const EditBooking = ({room, navigation, handleChange}) => {
                     </View>
                     <View style={styles.leftRightFlex}>
                         <Text>Start Date</Text>
-                        <DateTimePicker mode="date" value={start} style={styles.dateTimePicker} />
+                        <DateTimePicker mode="date" value={start} onChange={updateBookingStart} style={styles.dateTimePicker} />
                     </View>
                     <View style={styles.leftRightFlex}>
                         <Text>Start Time</Text>
-                        <DateTimePicker mode="time" value={start} style={styles.dateTimePicker} />
+                        <DateTimePicker mode="time" value={start} onChange={updateBookingStart} style={styles.dateTimePicker} />
                     </View>
                     <View style={styles.leftRightFlex}>
                         <Text>End Date</Text>
-                        <DateTimePicker mode="date" value={end} style={styles.dateTimePicker} />
+                        <DateTimePicker mode="date" value={end} onChange={updateBookingEnd} style={styles.dateTimePicker} />
                     </View>
                     <View style={styles.leftRightFlex}>
                         <Text>End Time</Text>
-                        <DateTimePicker mode="time" value={end} style={styles.dateTimePicker} />
+                        <DateTimePicker mode="time" value={end} onChange={updateBookingEnd} style={styles.dateTimePicker} />
                     </View>
                     <TouchableOpacity
                         style={roomDetailStyles.removeButton}

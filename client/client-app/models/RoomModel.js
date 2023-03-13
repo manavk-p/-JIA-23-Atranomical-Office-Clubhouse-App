@@ -4,6 +4,7 @@ class Booking {
         this.start = start;
         this.end = end;
         this.user = user;
+        this.id = Math.random() * 1000; 
     }
 }
 
@@ -16,6 +17,7 @@ class RoomModel {
         this.temperature = temperature;
         this.numDesks = numDesks;
         this.bookings = bookings;
+        this.id = Math.random() * 1000; 
     }
 }
 export { Booking, RoomModel };
