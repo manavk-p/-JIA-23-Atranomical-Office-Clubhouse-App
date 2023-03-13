@@ -30,13 +30,11 @@ const RoomBookings = ({bookings}) => {
     );
 }
 const RoomComponent = ({ room, callback, navigation }) => {
-    console.log(room.bookings)
     return (
         <SafeAreaView>
             <View style={styles.eventComponentContainer}>
                 <TouchableOpacity
                     onPress={() => callback(room, navigation)}
-                    disabled={!room.available}
                 >
                     <View style={styles.eventLeftContainer}>
                         <View>

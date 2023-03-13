@@ -5,7 +5,8 @@ import {
     Text,
     SafeAreaView,
     View,
-    StyleSheet
+    StyleSheet,
+    FlatList
 } from "react-native";
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { TouchableOpacity } from "react-native-gesture-handler";
@@ -28,7 +29,7 @@ const BookRoom = ({room, onBookRoom, navigation}) => {
 
             <TouchableOpacity
                 style={roomDetailStyles.bookButton}
-                onPress={() => onBookRoom(room, navigation)}
+                onPress={() => navigation.goBack()}
             >
                 <Text stlye={roomDetailStyles.bookButtonText}>Book Room</Text>
             </TouchableOpacity>
@@ -36,15 +37,54 @@ const BookRoom = ({room, onBookRoom, navigation}) => {
     );
 }
 
-const EditBooking = () => {
+const EditBooking = ({room, navigation}) => {
+    console.log("room", room)
+    const BookingEntry = (booking) => {
+        const { user, start, end } = booking.item;
+        return (
+            <View>
+                <View style={{borderWidth: 2}}>
+                    <View style={{ display: "flex", justifyContent: "center", width: "100%", alignItems: "center"}}>
+                        <Text style={styles.h2}>{start} - {end}</Text>
+                        <Text>{user.name}</Text>
+                    </View>
+                    <View style={styles.leftRightFlex}>
+                        <Text>Start Time</Text>
+                        <DateTimePicker mode="time" value={new Date()} style={styles.dateTimePicker} />
+                    </View>
+                    <View style={styles.leftRightFlex}>
+                        <Text>End Time</Text>
+                        <DateTimePicker mode="time" value={new Date()} style={styles.dateTimePicker} />
+                    </View>
+                </View>
+            </View>
+        );
+    }
     return (
-        <Text>TODO</Text>
+        <View>
+            <Text style={[textStyles.h2, roomDetailStyles.centered]}>
+                {'Edit Bookings'}
+            </Text>
+            <FlatList showsVerticalScrollIndicator={false}
+                data={room.bookings}
+                keyExtractor={(item) => item.id}
+                renderItem={(b) => BookingEntry(b)}
+            />
+            <TouchableOpacity
+                style={roomDetailStyles.bookButton}
+                onPress={() => navigation.goBack()}
+            >
+                <Text stlye={roomDetailStyles.bookButtonText}>Done</Text>
+            </TouchableOpacity>
+        </View>
     );
 }
 
 
 const RoomDetail = ({ route, navigation }) => {
     const { room, onRoomBook } = route.params;
+
+
     return (
         <SafeAreaView style={[styles.safeViewContainer, roomDetailStyles.viewPort]}>
             <View>
@@ -64,7 +104,11 @@ const RoomDetail = ({ route, navigation }) => {
                     Number of Desks: {room.numDesks}
                 </Text>
             </View>
-            { room.isBooked ? <EditBooking navigation={navigation} onBookRoom={onRoomBook} room={room}/> : <BookRoom /> }
+            { 
+                room.bookings.length > 0 ?
+                    <EditBooking navigation={navigation} room={room}/> 
+                    : <BookRoom navigation={navigation} onBookRoom={onRoomBook} room={room}/> 
+            }
         </SafeAreaView>
     );
 }
