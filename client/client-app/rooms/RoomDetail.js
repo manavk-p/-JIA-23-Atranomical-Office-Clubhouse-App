@@ -6,12 +6,14 @@ import {
     SafeAreaView,
     View,
     StyleSheet,
-    FlatList
+    FlatList,
+    ScrollView
 } from "react-native";
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { Booking } from "../models/RoomModel";
 
-const BookRoom = ({room, onBookRoom, navigation}) => {
+const BookRoom = ({room, handleChange, navigation}) => {
     let startDate = new Date()
     let endDate = new Date()
 
@@ -39,7 +41,13 @@ const BookRoom = ({room, onBookRoom, navigation}) => {
             </View>
             <TouchableOpacity
                 style={roomDetailStyles.bookButton}
-                onPress={() => navigation.goBack()}
+                onPress={() => {
+                    const booking = new Booking(startDate, endDate, { name: "You" });
+                    room.bookings.push(booking)
+                    handleChange(room)
+                    navigation.goBack()
+                }
+                }
             >
                 <Text stlye={roomDetailStyles.bookButtonText}>Book Room</Text>
             </TouchableOpacity>
@@ -48,10 +56,15 @@ const BookRoom = ({room, onBookRoom, navigation}) => {
     );
 }
 
-const EditBooking = ({room, navigation}) => {
+const EditBooking = ({room, navigation, handleChange}) => {
     const dateString = (date) => date.getMonth() + "/" + date.getDay() + " " + date.getHours() + ":" + date.getMinutes()
     const BookingEntry = (booking) => {
         const { user, start, end } = booking.item;
+
+        const updateBooking = () => {
+            booking.start = start
+            booking.end = end
+        }
         return (
             <View>
                 <View style={{borderWidth: 2, borderRadius: 8, padding: 5}}>
@@ -76,10 +89,26 @@ const EditBooking = ({room, navigation}) => {
                         <DateTimePicker mode="time" value={end} style={styles.dateTimePicker} />
                     </View>
                     <TouchableOpacity
-                        style={roomDetailStyles.checkInButton}
-                        onPress={() => navigation.goBack()}
+                        style={roomDetailStyles.removeButton}
+                        onPress={() => {
+                            room.bookings = room.bookings.filter(b => b.start != start && b.end != end) // LOL!
+                            handleChange(room)
+                        }}
                     >
-                        <Text stlye={roomDetailStyles.bookButtonText}>Check in</Text>
+                        <Text>Remove</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity
+                        style={roomDetailStyles.checkInButton}
+                        onPress={() => {
+                            booking = new Booking(start, end, { name: "You" });
+                            room.bookings.push(booking)
+                            handleChange(room)
+                            navigation.goBack()
+                        }
+                        }
+                    >
+                        <Text style={roomDetailStyles.bookButtonText}>Check in</Text>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -101,10 +130,11 @@ const EditBooking = ({room, navigation}) => {
 
 
 const RoomDetail = ({ route, navigation }) => {
-    const { room, onRoomBook } = route.params;
+    const { room, handleChange } = route.params;
 
     return (
         <SafeAreaView style={[styles.safeViewContainer, roomDetailStyles.viewPort]}>
+        <ScrollView>
             <View>
                 <Text style={textStyles.h1}>
                     {room.name}
@@ -124,8 +154,8 @@ const RoomDetail = ({ route, navigation }) => {
             </View>
             { 
                 room.bookings.length > 0 ?
-                    <EditBooking navigation={navigation} room={room}/> 
-                    : <BookRoom navigation={navigation} onBookRoom={onRoomBook} room={room}/> 
+                    <EditBooking navigation={navigation} room={room} handleChange={handleChange}/> 
+                    : <BookRoom navigation={navigation} handleChange={handleChange} room={room}/> 
             }
             <TouchableOpacity
                 style={roomDetailStyles.doneButton}
@@ -133,6 +163,7 @@ const RoomDetail = ({ route, navigation }) => {
             >
                 <Text stlye={roomDetailStyles.bookButtonText}>Done</Text>
             </TouchableOpacity>
+        </ScrollView>
         </SafeAreaView>
     );
 }
@@ -178,8 +209,19 @@ const roomDetailStyles = StyleSheet.create({
     },
     bookButtonText: {
         color: 'white',
-        fontSize: 25,
+        fontSize: 16,
         fontWeight: '500',
+    },
+    removeButton: {
+        width: "100%",
+        borderRadius: 16,
+        height: 30,
+        alignItems: "center",
+        justifyContent: "center",
+        marginTop: 40,
+        paddingHorizontal: 20,
+        backgroundColor: Colors.red,
+        color: Colors.white
     }
 });
 export default RoomDetail;

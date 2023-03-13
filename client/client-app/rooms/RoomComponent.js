@@ -2,7 +2,7 @@ import { useState } from "react";
 import { SafeAreaView, Text, View, Image, Pressable, StyleSheet, FlatList } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { styles, Colors } from "../styles";
-
+import React from "react";
 
 const BookingTag = (booking) => {
     const {start, end, user} = booking.item;
@@ -31,10 +31,17 @@ const RoomBookings = ({bookings}) => {
     );
 }
 const RoomComponent = ({ room, callback, navigation }) => {
+
     return (
         <SafeAreaView>
                 <TouchableOpacity
-                    onPress={() => callback(room, navigation)}
+                    onPress={() => {
+                        params = {
+                            room: room,
+                            handleChange: callback
+                        }
+                        navigation.navigate("RoomDetail", params);
+                    }}
                 >
                     <View style={[
                         styles.eventComponentContainer,
