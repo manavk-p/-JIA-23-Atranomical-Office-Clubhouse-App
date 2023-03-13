@@ -9,23 +9,23 @@ import {
 } from "react-native";
 import { ROOMS } from "../data/DummyData";
 import RoomComponent from "./RoomComponent";
+import RoomModel from "../models/RoomModel";
 
 function renderRoomComponent(itemData) {
     return (<RoomComponent
-        name={itemData.item.name}
-        noiseLevel={itemData.item.noiseLevel}
-        occupancyLimit={itemData.item.occupancyLimit}
-        temperature={itemData.item.temperature}
-        numDesks={itemData.item.numDesks}
-        available={itemData.item.available}
+        room={itemData.item}
+        callback={onRoomClick}
     />
     );
+}
+
+const onRoomClick = (room) => {
+    console.log("room clicked", room)
 }
 
 const Rooms = ({ }) => {
     return (
         <SafeAreaView style={styles.safeViewContainer}>
-
             <Text style={textStyles.h1}>
                 {'Rooms'}
             </Text>

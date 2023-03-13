@@ -1,36 +1,42 @@
 import { useState } from "react";
 import { SafeAreaView, Text, View, Image, Pressable, StyleSheet } from "react-native";
+import { TouchableOpacity } from "react-native-gesture-handler";
 import { styles, Colors } from "../styles";
 
 
 
-const RoomComponent = ({ name, noiseLevel, occupancyLimit, temperature, numDesks, available }) => {
+const RoomComponent = ({ room, callback }) => {
 
     return (
         <SafeAreaView>
             <View style={styles.eventComponentContainer}>
-                <View style={styles.eventLeftContainer}>
-                    <View>
-                        <Text style={styles.eventTextPrimary}>
-                            {name}
-                        </Text>
-                        <Text style={available ? RoomComponentStyles.available : RoomComponentStyles.unavailable}>
-                            {available ? "available" : "unavailable"}
-                        </Text>
-                        <Text style={styles.eventTextSecondary}>
-                            Noise Level: {noiseLevel}
-                        </Text>
-                        <Text style={styles.eventTextSecondary}>
-                            Occupancy Limit: {occupancyLimit}
-                        </Text>
-                        <Text style={styles.eventTextSecondary}>
-                            Temperature: {temperature}°
-                        </Text>
-                        <Text style={styles.eventTextSecondary}>
-                            Number of Desks: {numDesks}
-                        </Text>
+                <TouchableOpacity
+                    onPress={() => callback(room)}
+                    disabled={!room.available}
+                >
+                    <View style={styles.eventLeftContainer}>
+                        <View>
+                            <Text style={styles.eventTextPrimary}>
+                                {room.name}
+                            </Text>
+                            <Text style={room.available ? RoomComponentStyles.available : RoomComponentStyles.unavailable}>
+                                {room.available ? "available" : "unavailable"}
+                            </Text>
+                            <Text style={styles.eventTextSecondary}>
+                                Noise Level: {room.noiseLevel}
+                            </Text>
+                            <Text style={styles.eventTextSecondary}>
+                                Occupancy Limit: {room.occupancyLimit}
+                            </Text>
+                            <Text style={styles.eventTextSecondary}>
+                                Temperature: {room.temperature}°
+                            </Text>
+                            <Text style={styles.eventTextSecondary}>
+                                Number of Desks: {room.numDesks}
+                            </Text>
+                        </View>
                     </View>
-                </View>
+                </TouchableOpacity>
             </View>
         </SafeAreaView>
     );
