@@ -5,13 +5,13 @@ import { styles, Colors } from "../styles";
 
 
 
-const RoomComponent = ({ room, callback }) => {
+const RoomComponent = ({ room, callback, navigation }) => {
 
     return (
         <SafeAreaView>
             <View style={styles.eventComponentContainer}>
                 <TouchableOpacity
-                    onPress={() => callback(room)}
+                    onPress={() => callback(room, navigation)}
                     disabled={!room.available}
                 >
                     <View style={styles.eventLeftContainer}>

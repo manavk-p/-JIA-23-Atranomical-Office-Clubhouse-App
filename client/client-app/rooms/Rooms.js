@@ -11,19 +11,21 @@ import { ROOMS } from "../data/DummyData";
 import RoomComponent from "./RoomComponent";
 import RoomModel from "../models/RoomModel";
 
-function renderRoomComponent(itemData) {
+function renderRoomComponent(data, navigation) {
     return (<RoomComponent
-        room={itemData.item}
+        room={data.item}
         callback={onRoomClick}
+        navigation={navigation}
     />
     );
 }
 
-const onRoomClick = (room) => {
+const onRoomClick = (room, navigation) => {
     console.log("room clicked", room)
+    navigation.navigate("RoomDetail");
 }
 
-const Rooms = ({ }) => {
+const Rooms = ({ navigation }) => {
     return (
         <SafeAreaView style={styles.safeViewContainer}>
             <Text style={textStyles.h1}>
@@ -33,7 +35,7 @@ const Rooms = ({ }) => {
                 <FlatList showsVerticalScrollIndicator={false}
                     data={(ROOMS.sort((a, b) => b.available - a.available))}
                     keyExtractor={(item) => item.id}
-                    renderItem={renderRoomComponent}
+                    renderItem={(item) => renderRoomComponent(item, navigation)}
                 />
             </View>
         </SafeAreaView>
