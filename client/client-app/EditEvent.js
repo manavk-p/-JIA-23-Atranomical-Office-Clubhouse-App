@@ -49,7 +49,7 @@ const EditEvent = ({route, navigation}) => {
                     style={styles.singleLineEdit}/>
 
 
-                    <View style = {editEventStyles.leftRightFlex}>
+                    {/* <View style = {editEventStyles.leftRightFlex}>
                        <Text>Select Date</Text>
                         <DateTimePicker mode="date" value={new Date()} style={styles.dateTimePicker} />
                     </View>
@@ -57,15 +57,15 @@ const EditEvent = ({route, navigation}) => {
                         <Text>Select Time</Text>
                         <DateTimePicker mode="time" value={new Date()} style={styles.dateTimePicker} />
 
-                    </View>
-                    {/* <TextInput 
+                    </View> */}
+                    <TextInput 
                     onChangeText={onChangeDate}
                     value={date}
                     style={styles.singleLineEdit}/>
                     <TextInput 
                     onChangeText={onChangeTime}
                     value={time}
-                    style={styles.singleLineEdit}/> */}
+                    style={styles.singleLineEdit}/>
 
                     </View> 
                     
