@@ -27,34 +27,36 @@ const BookRoom = ({room, onBookRoom, navigation}) => {
                 <DateTimePicker mode="time" value={new Date()} style={styles.dateTimePicker} />
             </View>
 
-            <TouchableOpacity
-                style={roomDetailStyles.bookButton}
-                onPress={() => navigation.goBack()}
-            >
-                <Text stlye={roomDetailStyles.bookButtonText}>Book Room</Text>
-            </TouchableOpacity>
         </View>
     );
 }
 
 const EditBooking = ({room, navigation}) => {
-    console.log("room", room)
+    const dateString = (date) => date.getMonth() + "/" + date.getDay() + " " + date.getHours() + ":" + date.getMinutes()
     const BookingEntry = (booking) => {
         const { user, start, end } = booking.item;
         return (
             <View>
-                <View style={{borderWidth: 2}}>
+                <View style={{borderWidth: 2, borderRadius: 8, padding: 5}}>
                     <View style={{ display: "flex", justifyContent: "center", width: "100%", alignItems: "center"}}>
-                        <Text style={styles.h2}>{start} - {end}</Text>
+                        <Text style={styles.h2}>{dateString(start)} - {dateString(end)}</Text>
                         <Text>{user.name}</Text>
                     </View>
                     <View style={styles.leftRightFlex}>
+                        <Text>Start Date</Text>
+                        <DateTimePicker mode="date" value={start} style={styles.dateTimePicker} />
+                    </View>
+                    <View style={styles.leftRightFlex}>
                         <Text>Start Time</Text>
-                        <DateTimePicker mode="time" value={new Date()} style={styles.dateTimePicker} />
+                        <DateTimePicker mode="time" value={start} style={styles.dateTimePicker} />
+                    </View>
+                    <View style={styles.leftRightFlex}>
+                        <Text>End Date</Text>
+                        <DateTimePicker mode="date" value={end} style={styles.dateTimePicker} />
                     </View>
                     <View style={styles.leftRightFlex}>
                         <Text>End Time</Text>
-                        <DateTimePicker mode="time" value={new Date()} style={styles.dateTimePicker} />
+                        <DateTimePicker mode="time" value={end} style={styles.dateTimePicker} />
                     </View>
                 </View>
             </View>
@@ -70,12 +72,6 @@ const EditBooking = ({room, navigation}) => {
                 keyExtractor={(item) => item.id}
                 renderItem={(b) => BookingEntry(b)}
             />
-            <TouchableOpacity
-                style={roomDetailStyles.bookButton}
-                onPress={() => navigation.goBack()}
-            >
-                <Text stlye={roomDetailStyles.bookButtonText}>Done</Text>
-            </TouchableOpacity>
         </View>
     );
 }
@@ -109,6 +105,12 @@ const RoomDetail = ({ route, navigation }) => {
                     <EditBooking navigation={navigation} room={room}/> 
                     : <BookRoom navigation={navigation} onBookRoom={onRoomBook} room={room}/> 
             }
+            <TouchableOpacity
+                style={roomDetailStyles.doneButton}
+                onPress={() => navigation.goBack()}
+            >
+                <Text stlye={roomDetailStyles.bookButtonText}>Done</Text>
+            </TouchableOpacity>
         </SafeAreaView>
     );
 }
@@ -131,6 +133,16 @@ const roomDetailStyles = StyleSheet.create({
         marginTop: 40,
         paddingHorizontal: 20,
         backgroundColor: Colors.green,
+    },
+    doneButton: {
+        width: "100%",
+        borderRadius: 16,
+        height: 50,
+        alignItems: "center",
+        justifyContent: "center",
+        marginTop: 40,
+        paddingHorizontal: 20,
+        backgroundColor: Colors.blue,
     },
     bookButtonText: {
         color: 'white',

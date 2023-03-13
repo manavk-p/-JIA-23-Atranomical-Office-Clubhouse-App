@@ -21,7 +21,7 @@ export const EVENTS = [
 export const SETTINGS = new SettingsModel('s1', 'John Garrett', 'jgarrett47@gatech.edu', 'admin', 'Low', 70, 'Room 401A - Tower 1');
 
 const user = new User("Jacob Reinier");
-const booking = new Booking("Mar 13 8:00", "Mar 13 16:00", user);
+const booking = new Booking(new Date('2023-03-13T10:10:00'), new Date('2023-03-13T14:30:00'), user);
 const r1 = new RoomModel('r1', 'Room 1', 'low', 15, 65, 15, []);
 const r2 = new RoomModel('r2', 'Room 2', 'high', 20, 68, 25, [booking]);
 

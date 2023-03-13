@@ -6,11 +6,15 @@ import { styles, Colors } from "../styles";
 
 const BookingTag = (booking) => {
     const {start, end, user} = booking.item;
+    console.log( "asdas", start, end, start.monthIndex
+
+    )
+    const dateString = (date) => date.getMonth() + "/" + date.getDay() + " " + date.getHours() + ":" + date.getMinutes()
     return (
         <View style={roomComponentStyles.booking}>
             <Text style={roomComponentStyles.bookingTitle}>Booked By</Text>
             <Text style={roomComponentStyles.bookingSubTitle}>{user.name}</Text>
-            <Text style={roomComponentStyles.bookingTime}>{start} - {end}</Text>
+            <Text style={roomComponentStyles.bookingTime}>{dateString(start)} - {dateString(end)}</Text>
         </View>
     );
 }
