@@ -22,7 +22,11 @@ function renderRoomComponent(data, navigation) {
 
 const onRoomClick = (room, navigation) => {
     console.log("room clicked", room)
-    navigation.navigate("RoomDetail");
+    params = {
+        room: room,
+    }
+    console.log(params)
+    navigation.navigate("RoomDetail", params);
 }
 
 const Rooms = ({ navigation }) => {
