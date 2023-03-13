@@ -10,7 +10,14 @@ import RoomDetail from './rooms/RoomDetail';
 
 const Stack = createNativeStackNavigator();
 
+import React, { useEffect } from 'react';
+import { LogBox } from 'react-native';
+
+
 function App() {
+  useEffect(() => {
+      LogBox.ignoreLogs(['VirtualizedLists should never be nested']); // heheheheh
+  }, [])
   return (
     <NavigationContainer>
       <Stack.Navigator 
