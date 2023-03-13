@@ -23,6 +23,7 @@ function renderEventComponent(itemData) {
             date={itemData.item.date}
             time={itemData.item.time}
             description={itemData.item.description}
+            id={itemData.item.id}
           />
         );
 }

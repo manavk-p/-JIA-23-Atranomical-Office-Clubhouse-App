@@ -1,9 +1,10 @@
-import { View, SafeAreaView, Pressable, Text, TextInput, StyleSheet, TouchableOpacity } from "react-native";
+import { View, SafeAreaView, Pressable, Text, TextInput, StyleSheet, TouchableOpacity, ScrollView } from "react-native";
 import { styles, textStyles, Colors } from "./styles";
 import DateTimePicker from '@react-native-community/datetimepicker';
 const AddEvent = ({navigation}) => {
     return (
         <SafeAreaView style={styles.eventScreenContainer}>
+        <ScrollView>
         <View>
           <View style={styles.screenHeader}>
             <Text style={textStyles.h1}>
@@ -50,6 +51,7 @@ const AddEvent = ({navigation}) => {
                 </TouchableOpacity>
             </View>
         </View>
+        </ScrollView>
       </SafeAreaView>
     );
 }
