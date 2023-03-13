@@ -15,7 +15,7 @@ const AddEvent = () => {
         </View>
         <View style={addEventStyles.addEventContainer}>
             <View style={addEventStyles.textEntryContainerMain}>
-                <TextInput defaultValue="Event Name" style={addEventStyles.textEntryFont}></TextInput>
+                <TextInput placeholder="Event Name" style={addEventStyles.textEntryFont}></TextInput>
             </View>
             <View style={addEventStyles.textEntryContainerMain}>
                 <Pressable>
@@ -28,7 +28,7 @@ const AddEvent = () => {
                 </Pressable>
             </View>
             <View style={addEventStyles.textEntryContainerSecondary}>
-                <TextInput defaultValue="Description" style={[addEventStyles.textEntryFont]}></TextInput>
+                <TextInput placeholder="Description" style={[addEventStyles.textEntryFont]}></TextInput>
             </View>
             <View style={addEventStyles.textEntryContainerMain}>
                 <Pressable>
