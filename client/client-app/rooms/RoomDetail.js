@@ -58,6 +58,12 @@ const EditBooking = ({room, navigation}) => {
                         <Text>End Time</Text>
                         <DateTimePicker mode="time" value={end} style={styles.dateTimePicker} />
                     </View>
+                    <TouchableOpacity
+                        style={roomDetailStyles.checkInButton}
+                        onPress={() => navigation.goBack()}
+                    >
+                        <Text stlye={roomDetailStyles.bookButtonText}>Check in</Text>
+                    </TouchableOpacity>
                 </View>
             </View>
         );
@@ -131,6 +137,16 @@ const roomDetailStyles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
         marginTop: 40,
+        paddingHorizontal: 20,
+        backgroundColor: Colors.green,
+    },
+    checkInButton: {
+        width: "100%",
+        borderRadius: 16,
+        height: 40,
+        alignItems: "center",
+        justifyContent: "center",
+        marginTop: 10,
         paddingHorizontal: 20,
         backgroundColor: Colors.green,
     },
