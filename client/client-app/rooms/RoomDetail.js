@@ -88,7 +88,7 @@ const EditBooking = ({room, navigation}) => {
     return (
         <View>
             <Text style={[textStyles.h2, roomDetailStyles.centered]}>
-                {'Edit Bookings'}
+                {'Current Bookings'}
             </Text>
             <FlatList showsVerticalScrollIndicator={false}
                 data={room.bookings}

@@ -6,9 +6,6 @@ import { styles, Colors } from "../styles";
 
 const BookingTag = (booking) => {
     const {start, end, user} = booking.item;
-    console.log( "asdas", start, end, start.monthIndex
-
-    )
     const dateString = (date) => date.getMonth() + "/" + date.getDay() + " " + date.getHours() + ":" + date.getMinutes()
     return (
         <View style={roomComponentStyles.booking}>
@@ -36,16 +33,18 @@ const RoomBookings = ({bookings}) => {
 const RoomComponent = ({ room, callback, navigation }) => {
     return (
         <SafeAreaView>
-            <View style={styles.eventComponentContainer}>
                 <TouchableOpacity
                     onPress={() => callback(room, navigation)}
                 >
-                    <View style={styles.eventLeftContainer}>
+                    <View style={[
+                        styles.eventComponentContainer,
+                        { display: "flex", flexDirection: "row", alignItems: "center", padding: 15 }
+                    ]}>
+                    <View >
                         <View>
                             <Text style={styles.eventTextPrimary}>
                                 {room.name}
                             </Text>
-                            <RoomBookings bookings={room.bookings} />
                             <Text style={styles.eventTextSecondary}>
                                 Noise Level: {room.noiseLevel}
                             </Text>
@@ -60,8 +59,11 @@ const RoomComponent = ({ room, callback, navigation }) => {
                             </Text>
                         </View>
                     </View>
-                </TouchableOpacity>
-            </View>
+                    <View >
+                        <RoomBookings bookings={room.bookings} />
+                    </View>
+                </View>
+            </TouchableOpacity>
         </SafeAreaView>
     );
 }
@@ -92,7 +94,7 @@ const roomComponentStyles = StyleSheet.create({
         color: Colors.white,
         borderRadius: 16,
         padding: 2.5,
-        textAlign: "center"
+        textAlign: "center",
     }
 });
 export default RoomComponent;
