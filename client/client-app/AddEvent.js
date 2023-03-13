@@ -1,26 +1,8 @@
 import { View, SafeAreaView, Pressable, Text, TextInput, StyleSheet, TouchableOpacity, ScrollView } from "react-native";
-import { useState } from "react";
 import { styles, textStyles, Colors } from "./styles";
 import DateTimePicker from '@react-native-community/datetimepicker';
 const AddEvent = ({navigation}) => {
-    const [desc, onChangeDesc] = useState();
-    const [name, onChangeName] = useState();
-    const [date, onChangeDate] = useState("");
-    const [time, onChangeTime] = useState("");
-
-    const handleDateConfirm = (date) => {
-        hideDatePicker(date);
-        onChangeDate(date);
-    }
-
-    const handleTimeConfirm = (time) => {
-        hideDatePicker(time);
-        onChangeTime(time);
-    }
-
     return (
-        
-
         <SafeAreaView style={styles.eventScreenContainer}>
         <ScrollView>
         <View>
@@ -35,28 +17,23 @@ const AddEvent = ({navigation}) => {
         </View>
         <View style={addEventStyles.addEventContainer}>
             <View style={addEventStyles.textEntryContainerMain}>
-                <TextInput placeholder="Event Name" style={addEventStyles.textEntryFont}
-                                                    onChangeText={onChangeName} 
-                                                    value={name}></TextInput>
+                <TextInput placeholder="Event Name" style={addEventStyles.textEntryFont}></TextInput>
             </View>
-            {/* <View style={addEventStyles.textEntryContainerMain}>
+            <View style={addEventStyles.textEntryContainerMain}>
                 <Pressable>
                     <Text style={addEventStyles.textEntryFont}>Select Location</Text>
                 </Pressable>
-            </View> */}
+            </View>
             <View style={addEventStyles.leftRightFlex}>
                 <Text>Select Date</Text>
                 <DateTimePicker mode="date" value={new Date()} style={styles.dateTimePicker} />
             </View>
             <View style={addEventStyles.leftRightFlex}>
                 <Text>Select Time</Text>
-                <DateTimePicker mode="time" value={new Date()} style={styles.dateTimePicker} 
-                                onConfirm={handleConfirm}/>
+                <DateTimePicker mode="time" value={new Date()} style={styles.dateTimePicker} />
             </View>
             <View style={addEventStyles.textEntryContainerSecondary}>
-                <TextInput placeholder="Description" style={[addEventStyles.textEntryFont]}
-                                                     onChangeText={onChangeDesc}
-                                                     value={desc}></TextInput>
+                <TextInput placeholder="Description" style={[addEventStyles.textEntryFont]}></TextInput>
             </View>
             <View style={addEventStyles.textEntryContainerMain}>
                 <Pressable>
@@ -67,7 +44,7 @@ const AddEvent = ({navigation}) => {
                 <TouchableOpacity 
                     style={addEventStyles.createText}
                     onPress={() => {
-                        navigation.navigate('Events', {updateId: True});
+                        navigation.goBack()
                     }}
                 >
                     <Text style={{fontWeight: "500"}}> Create </Text>
