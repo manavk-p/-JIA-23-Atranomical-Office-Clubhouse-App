@@ -187,9 +187,9 @@ const styles = StyleSheet.create({
   leftRightFlex: {
       display: "flex",
       flexDirection: "row",
-      alignItems: "space-between",
+      alignItems: "center",
       justifyContent: "space-between",
-      width: "90%",
+      width: "100%",
       paddingTop: 10,
       paddingBottom: 10,
   },

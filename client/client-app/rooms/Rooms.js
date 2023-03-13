@@ -24,9 +24,14 @@ const onRoomClick = (room, navigation) => {
     console.log("room clicked", room)
     params = {
         room: room,
+        onRoomBook: onRoomBook
     }
     console.log(params)
     navigation.navigate("RoomDetail", params);
+}
+
+const onRoomBook = ({room}) => {
+    console.log("booked", room)
 }
 
 const Rooms = ({ navigation }) => {
@@ -37,7 +42,8 @@ const Rooms = ({ navigation }) => {
             </Text>
             <View style={styles.eventListContainer}>
                 <FlatList showsVerticalScrollIndicator={false}
-                    data={(ROOMS.sort((a, b) => b.available - a.available))}
+                    //data={(ROOMS.sort((a, b) => b.available - a.available))}
+                    data={ROOMS}
                     keyExtractor={(item) => item.id}
                     renderItem={(item) => renderRoomComponent(item, navigation)}
                 />
