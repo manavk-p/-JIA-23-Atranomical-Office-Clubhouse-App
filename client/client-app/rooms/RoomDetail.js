@@ -12,6 +12,9 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 import { TouchableOpacity } from "react-native-gesture-handler";
 
 const BookRoom = ({room, onBookRoom, navigation}) => {
+    let startDate = new Date()
+    let endDate = new Date()
+
     return (
         <View>
             <Text style={[textStyles.h2, roomDetailStyles.centered]}>
@@ -19,13 +22,27 @@ const BookRoom = ({room, onBookRoom, navigation}) => {
             </Text>
 
             <View style={styles.leftRightFlex}>
-                <Text>Select Date</Text>
-                <DateTimePicker mode="date" value={new Date()} style={styles.dateTimePicker} />
+                <Text>Start Date</Text>
+                <DateTimePicker mode="date" value={startDate} style={styles.dateTimePicker} />
             </View>
             <View style={styles.leftRightFlex}>
-                <Text>Select Time</Text>
-                <DateTimePicker mode="time" value={new Date()} style={styles.dateTimePicker} />
+                <Text>Start Time</Text>
+                <DateTimePicker mode="time" value={startDate} style={styles.dateTimePicker} />
             </View>
+            <View style={styles.leftRightFlex}>
+                <Text>End Date</Text>
+                <DateTimePicker mode="date" value={endDate} style={styles.dateTimePicker} />
+            </View>
+            <View style={styles.leftRightFlex}>
+                <Text>End Time</Text>
+                <DateTimePicker mode="time" value={endDate} style={styles.dateTimePicker} />
+            </View>
+            <TouchableOpacity
+                style={roomDetailStyles.bookButton}
+                onPress={() => navigation.goBack()}
+            >
+                <Text stlye={roomDetailStyles.bookButtonText}>Book Room</Text>
+            </TouchableOpacity>
 
         </View>
     );
@@ -85,7 +102,6 @@ const EditBooking = ({room, navigation}) => {
 
 const RoomDetail = ({ route, navigation }) => {
     const { room, onRoomBook } = route.params;
-
 
     return (
         <SafeAreaView style={[styles.safeViewContainer, roomDetailStyles.viewPort]}>
