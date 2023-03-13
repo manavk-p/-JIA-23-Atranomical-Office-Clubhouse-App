@@ -27,7 +27,7 @@ function App() {
             headerStyleInterpolator: HeaderStyleInterpolators.forUIKit,
           }}
         />
-        <Stack.Screen name="TabRoot" component={TabRoot} />
+        <Stack.Screen name="TabRoot" screenOptions={{ presentation: 'modal' }} component={TabRoot} />
         <Stack.Screen name="AddEvent" component={AddEvent} />
         <Stack.Screen name="EditEvent" component={EditEvent} />
       </Stack.Navigator>
