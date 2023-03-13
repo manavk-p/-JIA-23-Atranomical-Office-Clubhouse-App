@@ -1,5 +1,5 @@
 import { styles, textStyles } from "./styles";
-import {React } from "react";
+import {React, useState } from "react";
 import {
   Text,
   SafeAreaView,
@@ -29,12 +29,15 @@ function renderEventComponent(itemData) {
 }
 
 
-const Events = ({navigation}) => {
+const Events = ({route, navigation}) => {
 
+  let {updateId} = route.params;
+  
   function addEventHandler() {
     navigation.navigate("AddEvent");
   }
 
+  
 
 
   return (

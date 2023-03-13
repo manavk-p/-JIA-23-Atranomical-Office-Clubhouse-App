@@ -33,36 +33,42 @@ const EditEvent = ({route, navigation}) => {
                 }
             >
                 <Text style={textStyles.h2}>
-                    {"Cancel"}
+                    {"Cancel"} 
                 </Text>
             </TouchableOpacity>
-                <View style={styles.eventEditContainer}>
-                <ScrollView>
-                    <View style={{}}>
+            <View style={editEventStyles.eventEditContainer}>
+                <ScrollView contentContainerStyle={{
+                    alignItems: 'center',
+                    //flexGrow: 1
+                }}>
+                    <View>
+                    <View>
                     <TextInput 
-                    onChange={onChangeName}
+                    onChangeText={onChangeName}
                     value={name}
                     style={styles.singleLineEdit}/>
 
-                    <View style = {editEventStyles.leftRightFlex}>
+                    {/* <View style = {editEventStyles.leftRightFlex}>
                         <Text>Select Date</Text>
                         <DateTimePicker mode="date" value={new Date()} style={styles.dateTimePicker} />
                     </View>
                     <View style = {editEventStyles.leftRightFlex}>
                         <Text>Select Time</Text>
                         <DateTimePicker mode="time" value={new Date()} style={styles.dateTimePicker} />
-                    </View>
-                    {/* <TextInput 
-                    onChange={onChangeDate}
+                    </View> */}
+                    <TextInput 
+                    onChangeText={onChangeDate}
                     value={date}
                     style={styles.singleLineEdit}/>
                     <TextInput 
-                    onChange={onChangeTime}
+                    onChangeText={onChangeTime}
                     value={time}
-            style={styles.singleLineEdit}/> */}
+                    style={styles.singleLineEdit}/>
                     </View> 
                     
-                    <View style={{}}>
+                    <View style={{
+    
+                    }}>
                         <TextInput
                         multiline={true}
                         numberOfLines={10}
@@ -74,13 +80,17 @@ const EditEvent = ({route, navigation}) => {
                                 borderColor: 'black',
                                 paddingRight: 10,
                                 paddingLeft: 10,
+                                width: 325
                                 }}/>
                      </View>
+                    </View>
                     <View style={editEventStyles.editButton}>
                         <TouchableOpacity 
                             style={editEventStyles.editText}
                             onPress={() => {
-                                navigation.goBack()
+                                APPDATA.getEvent(id).name = name;
+                                eventmodel.description = desc;
+                                navigation.navigate('Events', {updateId: true})
                             }}
                         >
                             <Text style={{fontWeight: "500"}}> Edit </Text>
@@ -96,6 +106,20 @@ const EditEvent = ({route, navigation}) => {
 export default EditEvent;
 
 const editEventStyles = StyleSheet.create({
+    eventEditContainer: {
+        backgroundColor: '#D9D9D9',
+        borderColor: 'black',
+        borderWidth: 1,
+        shadowColor: '#171717',
+        shadowOffset: {width: -2, height: 4},
+        shadowOpacity: 0.2,
+        shadowRadius: 3,
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        padding: 10,
+        
+        flexDirection: 'column'
+    },
     leftRightFlex: {
         display: "flex",
         flexDirection: "row",
