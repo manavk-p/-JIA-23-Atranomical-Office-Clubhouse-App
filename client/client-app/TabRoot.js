@@ -43,7 +43,7 @@ const TabRoot = () => {
         >
         <Tab.Screen name="Home" component={Home} />
 
-        <Tab.Screen name="Events" component={Events} />
+        <Tab.Screen name="Events" component={Events} initialParams={{updateId: false}} />
 
         <Tab.Screen name="Rooms" component={Rooms}/>
         <Tab.Screen name="Desks" component={Desks} />

@@ -1,16 +1,22 @@
 import { useState } from "react";
-import { SafeAreaView, Text, View, TextInput, Image, TouchableOpacity, ScrollView} from "react-native";
-import { styles, textStyles } from "./styles";
-import { EVENTS } from "./Events"
+import { SafeAreaView, Text, View, TextInput, Image, 
+         TouchableOpacity, ScrollView, StyleSheet} from "react-native";
+import { styles, textStyles, Colors } from "./styles";
+import DateTimePicker from '@react-native-community/datetimepicker';
+import { APPDATA } from "./data/AppData";
 
-
-const EditEvent = ({navigation, id}) => {
-    //TODO: Get Event
-
+const EditEvent = ({route, navigation}) => {
+    
     //States for all fields
     //TODO: Get Actual Text, Change date and time fields to actual date and time specific input fields
-    const [desc, onChangeDesc] = useState("Placeholder text");
-    const [name, onChangeName] = useState("Name");
+    const {id} = route.params;
+    const eventmodel = APPDATA.getEvent(id);
+    let init_description = eventmodel.description 
+    let init_name = eventmodel.name
+
+
+    const [desc, onChangeDesc] = useState(init_description);
+    const [name, onChangeName] = useState(init_name);
     const [date, onChangeDate] = useState("Date");
     const [time, onChangeTime] = useState("Time");
     
@@ -27,28 +33,41 @@ const EditEvent = ({navigation, id}) => {
                 }
             >
                 <Text style={textStyles.h2}>
-                    {"Test + " + id}
+                    {"Cancel"} 
                 </Text>
             </TouchableOpacity>
-                <View style={styles.eventEditContainer}>
-                <ScrollView>
-                    <View style={{}}>
+            <View style={editEventStyles.eventEditContainer}>
+                <ScrollView contentContainerStyle={{
+                    alignItems: 'center',
+                    //flexGrow: 1
+                }}>
+                    <View>
+                    <View>
                     <TextInput 
-                    onChange={onChangeName}
+                    onChangeText={onChangeName}
                     value={name}
                     style={styles.singleLineEdit}/>
+
+                    {/* <View style = {editEventStyles.leftRightFlex}>
+                        <Text>Select Date</Text>
+                        <DateTimePicker mode="date" value={new Date()} style={styles.dateTimePicker} />
+                    </View>
+                    <View style = {editEventStyles.leftRightFlex}>
+                        <Text>Select Time</Text>
+                        <DateTimePicker mode="time" value={new Date()} style={styles.dateTimePicker} />
+                    </View> */}
                     <TextInput 
-                    onChange={onChangeDate}
+                    onChangeText={onChangeDate}
                     value={date}
                     style={styles.singleLineEdit}/>
                     <TextInput 
-                    onChange={onChangeTime}
+                    onChangeText={onChangeTime}
                     value={time}
                     style={styles.singleLineEdit}/>
-                    </View>
+                    </View> 
                     
                     <View style={{
-                        marginBottom: 100,
+    
                     }}>
                         <TextInput
                         multiline={true}
@@ -61,13 +80,68 @@ const EditEvent = ({navigation, id}) => {
                                 borderColor: 'black',
                                 paddingRight: 10,
                                 paddingLeft: 10,
+                                width: 325
                                 }}/>
                      </View>
-                </ScrollView> 
+                    </View>
+                    <View style={editEventStyles.editButton}>
+                        <TouchableOpacity 
+                            style={editEventStyles.editText}
+                            onPress={() => {
+                                APPDATA.getEvent(id).name = name;
+                                eventmodel.description = desc;
+                                navigation.navigate('Events', {updateId: true})
+                            }}
+                        >
+                            <Text style={{fontWeight: "500"}}> Edit </Text>
+                        </TouchableOpacity>
+                    </View> 
+                
+                </ScrollView>
                 </View>
         </SafeAreaView>
   );
 }
 
 export default EditEvent;
+
+const editEventStyles = StyleSheet.create({
+    eventEditContainer: {
+        backgroundColor: '#D9D9D9',
+        borderColor: 'black',
+        borderWidth: 1,
+        shadowColor: '#171717',
+        shadowOffset: {width: -2, height: 4},
+        shadowOpacity: 0.2,
+        shadowRadius: 3,
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        padding: 10,
+        
+        flexDirection: 'column'
+    },
+    leftRightFlex: {
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "space-between",
+        justifyContent: "space-between",
+        width: "90%",
+        paddingTop: 10,
+        paddingBottom: 10,
+    }, 
+    editButton: {
+        width: "90%",
+        borderRadius: 16,
+        height: 50,
+        alignItems: "center",
+        justifyContent: "center",
+        marginTop: 40,
+        backgroundColor: Colors.green,
+    },
+    editText: {
+        color: 'white',
+        fontSize: 25,
+        fontWeight: '500',
+    }
+});
 
