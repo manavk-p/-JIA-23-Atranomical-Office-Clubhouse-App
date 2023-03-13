@@ -31,7 +31,7 @@ const Rooms = ({ }) => {
             </Text>
             <View style={styles.eventListContainer}>
                 <FlatList showsVerticalScrollIndicator={false}
-                    data={ROOMS}
+                    data={(ROOMS.sort((a, b) => b.available - a.available))}
                     keyExtractor={(item) => item.id}
                     renderItem={renderRoomComponent}
                 />
