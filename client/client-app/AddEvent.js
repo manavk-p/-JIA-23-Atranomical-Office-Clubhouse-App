@@ -1,6 +1,7 @@
-import { View, SafeAreaView, Pressable, Text, TextInput, StyleSheet } from "react-native";
+import { View, SafeAreaView, Pressable, Text, TextInput, StyleSheet, TouchableOpacity } from "react-native";
 import { styles, textStyles, Colors } from "./styles";
-const AddEvent = () => {
+import DateTimePicker from '@react-native-community/datetimepicker';
+const AddEvent = ({navigation}) => {
     return (
         <SafeAreaView style={styles.eventScreenContainer}>
         <View>
@@ -15,20 +16,23 @@ const AddEvent = () => {
         </View>
         <View style={addEventStyles.addEventContainer}>
             <View style={addEventStyles.textEntryContainerMain}>
-                <TextInput defaultValue="Event Name" style={addEventStyles.textEntryFont}></TextInput>
+                <TextInput placeholder="Event Name" style={addEventStyles.textEntryFont}></TextInput>
             </View>
             <View style={addEventStyles.textEntryContainerMain}>
                 <Pressable>
                     <Text style={addEventStyles.textEntryFont}>Select Location</Text>
                 </Pressable>
             </View>
-            <View style={addEventStyles.textEntryContainerMain}>
-                <Pressable>
-                <Text style={addEventStyles.textEntryFont}>Select Date & Time</Text>
-                </Pressable>
+            <View style={addEventStyles.leftRightFlex}>
+                <Text>Select Date</Text>
+                <DateTimePicker mode="date" value={new Date()} style={styles.dateTimePicker} />
+            </View>
+            <View style={addEventStyles.leftRightFlex}>
+                <Text>Select Time</Text>
+                <DateTimePicker mode="time" value={new Date()} style={styles.dateTimePicker} />
             </View>
             <View style={addEventStyles.textEntryContainerSecondary}>
-                <TextInput defaultValue="Description" style={[addEventStyles.textEntryFont]}></TextInput>
+                <TextInput placeholder="Description" style={[addEventStyles.textEntryFont]}></TextInput>
             </View>
             <View style={addEventStyles.textEntryContainerMain}>
                 <Pressable>
@@ -36,12 +40,14 @@ const AddEvent = () => {
                 </Pressable>
             </View>
             <View style={addEventStyles.createButton}>
-                <Pressable>
-                    <Text style={addEventStyles.createText}>
-                        Create
-                    </Text>
-                </Pressable>
-
+                <TouchableOpacity 
+                    style={addEventStyles.createText}
+                    onPress={() => {
+                        navigation.goBack()
+                    }}
+                >
+                    <Text style={{fontWeight: "500"}}> Create </Text>
+                </TouchableOpacity>
             </View>
         </View>
       </SafeAreaView>
@@ -51,6 +57,15 @@ const AddEvent = () => {
 export default AddEvent;
 
 const addEventStyles = StyleSheet.create({
+    leftRightFlex: {
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "space-between",
+        justifyContent: "space-between",
+        width: "90%",
+        paddingTop: 10,
+        paddingBottom: 10,
+    },
     addEventContainer: {
         flex: .88,
         alignItems: 'center',
@@ -58,8 +73,8 @@ const addEventStyles = StyleSheet.create({
         marginTop: 15
     },
     textEntryContainerMain: {
-        width: 300,
-        height: 35,
+        width: "90%",
+        height: 30,
         backgroundColor: Colors.inputBg,
         marginBottom: 15
     },
@@ -69,19 +84,19 @@ const addEventStyles = StyleSheet.create({
         marginLeft: 5
     },
     textEntryContainerSecondary: {
-        width: 300,
+        width: "90%",
         height: 260,
         backgroundColor: Colors.inputBg,
         marginBottom: 15
     },
     createButton: {
+        width: "90%",
+        borderRadius: 16,
+        height: 50,
+        alignItems: "center",
+        justifyContent: "center",
+        marginTop: 40,
         backgroundColor: Colors.green,
-        height: 75,
-        width: 300,
-        borderRadius: 10,
-        marginTop: 10,
-        justifyContent: 'center',
-        alignItems: 'center'
     },
     createText: {
         color: 'white',
