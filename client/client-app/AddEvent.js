@@ -1,6 +1,7 @@
 import { View, SafeAreaView, Pressable, Text, TextInput, StyleSheet, TouchableOpacity, ScrollView } from "react-native";
 import { styles, textStyles, Colors } from "./styles";
 import DateTimePicker from '@react-native-community/datetimepicker';
+
 const AddEvent = ({navigation}) => {
     return (
         <SafeAreaView style={styles.eventScreenContainer}>

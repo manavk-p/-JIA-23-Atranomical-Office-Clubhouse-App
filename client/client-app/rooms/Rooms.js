@@ -9,30 +9,58 @@ import {
 } from "react-native";
 import { ROOMS } from "../data/DummyData";
 import RoomComponent from "./RoomComponent";
+import RoomModel from "../models/RoomModel";
 
-function renderRoomComponent(itemData) {
+function renderRoomComponent(data, navigation, handleChange) {
     return (<RoomComponent
-        name={itemData.item.name}
-        noiseLevel={itemData.item.noiseLevel}
-        occupancyLimit={itemData.item.occupancyLimit}
-        temperature={itemData.item.temperature}
-        numDesks={itemData.item.numDesks}
+        room={data.item}
+        callback={handleChange}
+        navigation={navigation}
     />
     );
 }
 
-const Rooms = ({ }) => {
+const onRoomClick = (room, navigation, handleChange) => {
+    console.log("room clicked", room)
+    params = {
+        room: room,
+        onRoomBook: onRoomBook,
+        handleChange: handleChange
+    }
+    console.log(params)
+    navigation.navigate("RoomDetail", params);
+}
+
+const onRoomBook = ({room}) => {
+    console.log("booked", room)
+}
+
+const Rooms = ({ navigation }) => {
+    const [rooms, setRooms] = React.useState(ROOMS);
+
+    function handleChange(newValue) {
+        newRooms = ROOMS.filter(r => r.id != newValue.id)
+        newRooms.push(newValue)
+        setRooms(newRooms);
+        params = {
+            room: newValue,
+            onRoomBook: onRoomBook,
+            handleChange: handleChange
+        }
+        console.log(params)
+        navigation.navigate("RoomDetail", params);
+    }
     return (
         <SafeAreaView style={styles.safeViewContainer}>
-
             <Text style={textStyles.h1}>
                 {'Rooms'}
             </Text>
             <View style={styles.eventListContainer}>
                 <FlatList showsVerticalScrollIndicator={false}
-                    data={ROOMS}
+                    //data={(ROOMS.sort((a, b) => b.available - a.available))}
+                    data={rooms}
                     keyExtractor={(item) => item.id}
-                    renderItem={renderRoomComponent}
+                    renderItem={(item) => renderRoomComponent(item, navigation, handleChange)}
                 />
             </View>
         </SafeAreaView>

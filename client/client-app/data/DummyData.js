@@ -1,6 +1,7 @@
 import EventModel from "../models/EventModel";
 import SettingsModel from "../models/SettingsModel";
-import RoomModel from "../models/RoomModel";
+import { RoomModel, Booking } from "../models/RoomModel";
+import User from "../models/User";
 
 const e1 = new EventModel('1', 'Office Potluck', '10-24-22', '1:00 PM', null, "This is a placeholder description to test the client application. Please RSVP at least a day before each event.");
 const e2 = new EventModel('2', 'Coffee and Donuts', '10-26-22', '9:30 AM', null, "This is a placeholder description to test the client application. Please RSVP at least a day before each event.");
@@ -19,8 +20,10 @@ export const EVENTS = [
 
 export const SETTINGS = new SettingsModel('s1', 'John Garrett', 'jgarrett47@gatech.edu', 'admin', 'Low', 70, 'Room 401A - Tower 1');
 
-const r1 = new RoomModel('r1', 'Room 1', 'low', 15, 65, 15);
-const r2 = new RoomModel('r2', 'Room 2', 'high', 20, 68, 25);
+const user = new User("Jacob Reinier");
+const booking = new Booking(new Date('2023-03-13T10:10:00'), new Date('2023-03-13T14:30:00'), user);
+const r1 = new RoomModel('r1', 'Room 1', 'low', 15, 65, 15, []);
+const r2 = new RoomModel('r2', 'Room 2', 'high', 20, 68, 25, [booking]);
 
 export const ROOMS = [
     r1, 
