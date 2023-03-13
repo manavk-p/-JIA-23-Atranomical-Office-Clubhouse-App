@@ -19,8 +19,8 @@ export const EVENTS = [
 
 export const SETTINGS = new SettingsModel('s1', 'John Garrett', 'jgarrett47@gatech.edu', 'admin', 'Low', 70, 'Room 401A - Tower 1');
 
-const r1 = new RoomModel('r1', 'Room 1', 'low', 15, 65, 15);
-const r2 = new RoomModel('r2', 'Room 2', 'high', 20, 68, 25);
+const r1 = new RoomModel('r1', 'Room 1', 'low', 15, 65, 15, true);
+const r2 = new RoomModel('r2', 'Room 2', 'high', 20, 68, 25, false);
 
 export const ROOMS = [
     r1, 

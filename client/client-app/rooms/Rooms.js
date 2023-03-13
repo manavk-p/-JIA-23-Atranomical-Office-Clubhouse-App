@@ -17,6 +17,7 @@ function renderRoomComponent(itemData) {
         occupancyLimit={itemData.item.occupancyLimit}
         temperature={itemData.item.temperature}
         numDesks={itemData.item.numDesks}
+        available={itemData.item.available}
     />
     );
 }

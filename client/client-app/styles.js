@@ -184,6 +184,15 @@ const styles = StyleSheet.create({
   paddingLeft: 10,
   marginBottom: 20,
   },
+  leftRightFlex: {
+      display: "flex",
+      flexDirection: "row",
+      alignItems: "space-between",
+      justifyContent: "space-between",
+      width: "90%",
+      paddingTop: 10,
+      paddingBottom: 10,
+  },
 });
 
 

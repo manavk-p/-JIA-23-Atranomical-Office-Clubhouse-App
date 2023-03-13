@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { SafeAreaView, Text, View, Image, Pressable } from "react-native";
-import { styles } from "../styles";
+import { SafeAreaView, Text, View, Image, Pressable, StyleSheet } from "react-native";
+import { styles, Colors } from "../styles";
 
 
 
-const RoomComponent = ({ name, noiseLevel, occupancyLimit, temperature, numDesks }) => {
+const RoomComponent = ({ name, noiseLevel, occupancyLimit, temperature, numDesks, available }) => {
 
     return (
         <SafeAreaView>
@@ -13,6 +13,9 @@ const RoomComponent = ({ name, noiseLevel, occupancyLimit, temperature, numDesks
                     <View>
                         <Text style={styles.eventTextPrimary}>
                             {name}
+                        </Text>
+                        <Text style={available ? RoomComponentStyles.available : RoomComponentStyles.unavailable}>
+                            {available ? "available" : "unavailable"}
                         </Text>
                         <Text style={styles.eventTextSecondary}>
                             Noise Level: {noiseLevel}
@@ -33,4 +36,22 @@ const RoomComponent = ({ name, noiseLevel, occupancyLimit, temperature, numDesks
     );
 }
 
+const RoomComponentStyles = StyleSheet.create({
+    available: {
+        ...styles.eventTextSecondary,
+        backgroundColor: Colors.green,
+        color: Colors.white,
+        borderRadius: 16,
+        padding: 2.5,
+        textAlign: "center"
+    },
+    unavailable: {
+        ...styles.eventTextSecondary,
+        backgroundColor: Colors.red,
+        color: Colors.white,
+        borderRadius: 16,
+        padding: 2.5,
+        textAlign: "center"
+    }
+});
 export default RoomComponent;
