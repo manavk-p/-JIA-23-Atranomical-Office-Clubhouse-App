@@ -48,25 +48,22 @@ const EditEvent = ({route, navigation}) => {
                     value={name}
                     style={styles.singleLineEdit}/>
 
-
-                    <View style = {editEventStyles.leftRightFlex}>
-                       <Text>Select Date</Text>
+                    {/* <View style = {editEventStyles.leftRightFlex}>
+                        <Text>Select Date</Text>
                         <DateTimePicker mode="date" value={new Date()} style={styles.dateTimePicker} />
                     </View>
                     <View style = {editEventStyles.leftRightFlex}>
                         <Text>Select Time</Text>
                         <DateTimePicker mode="time" value={new Date()} style={styles.dateTimePicker} />
-
-                    </View>
-                    {/* <TextInput 
+                    </View> */}
+                    <TextInput 
                     onChangeText={onChangeDate}
                     value={date}
                     style={styles.singleLineEdit}/>
                     <TextInput 
                     onChangeText={onChangeTime}
                     value={time}
-                    style={styles.singleLineEdit}/> */}
-
+                    style={styles.singleLineEdit}/>
                     </View> 
                     
                     <View style={{
@@ -91,7 +88,7 @@ const EditEvent = ({route, navigation}) => {
                         <TouchableOpacity 
                             style={editEventStyles.editText}
                             onPress={() => {
-                                eventmodel.name = name;
+                                APPDATA.getEvent(id).name = name;
                                 eventmodel.description = desc;
                                 navigation.navigate('Events', {updateId: true})
                             }}
