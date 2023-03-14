@@ -6,6 +6,8 @@ Application for AstraZeneca and CS-3312/LMC-3431.  Desk booking and Office notif
 ### Features
 * Edit events page
 * Desks screen
+* Editing room bookings
+* Creating room bookings
 ### Bug Fixes
 * Edit events button non-functional
 ## v.0.2.0
