@@ -12,8 +12,7 @@ import { ScrollView } from "react-native-gesture-handler";
 
 import { ROOMS } from "./data/DummyData";
 
-
-const Floor = ({ title, room1, room2 }) => {
+const Floor = ({ title, room1, room2, navigation }) => {
   return (
     <View style={{padding: 20}}>
       <Text style={textStyles.h2}>
@@ -23,6 +22,11 @@ const Floor = ({ title, room1, room2 }) => {
         <View style={deskStyles.floorLeft}>
          <TouchableOpacity
                     onPress={() => {
+                        params = {
+                            floorName: title,
+                            room: room1
+                        }
+                        navigation.navigate("FloorDetail", params);
                     }}
                 >
                     <View>
@@ -44,6 +48,10 @@ const Floor = ({ title, room1, room2 }) => {
         <View style={deskStyles.floorRight}>
            <TouchableOpacity
                       onPress={() => {
+                        params = {
+                            room: room2
+                        }
+                        navigation.navigate("FloorDetail", params);
                       }}
                   >
                       <View>
@@ -67,16 +75,16 @@ const Floor = ({ title, room1, room2 }) => {
   );
 };
 
-const Desks = ({}) => {
+const Desks = ({ navigation }) => {
   return (
     <SafeAreaView>
       <Text style={textStyles.h1}>
         {'Floors'}
       </Text>
       <ScrollView>
-        <Floor title="Floor 0" room1={ROOMS[0]} room2={ROOMS[1]}/>
-        <Floor title="Floor 1" room1={ROOMS[2]} room2={ROOMS[3]}/>
-        <Floor title="Floor 2" room1={ROOMS[4]} room2={ROOMS[5]}/>
+        <Floor title="Floor 0" room1={ROOMS[0]} room2={ROOMS[1]} navigation={navigation}/>
+        <Floor title="Floor 1" room1={ROOMS[2]} room2={ROOMS[3]} navigation={navigation}/>
+        <Floor title="Floor 2" room1={ROOMS[4]} room2={ROOMS[5]} navigation={navigation}/>
       </ScrollView>
     </SafeAreaView>
   );
