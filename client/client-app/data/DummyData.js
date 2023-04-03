@@ -25,7 +25,17 @@ const booking = new Booking(new Date('2023-03-13T10:10:00'), new Date('2023-03-1
 const r1 = new RoomModel('r1', 'Room 1', 'low', 15, 65, 15, []);
 const r2 = new RoomModel('r2', 'Room 2', 'high', 20, 68, 25, [booking]);
 
+const r3 = new RoomModel('r3', 'Room 3', 'high', 23, 72, 17, []);
+const r4 = new RoomModel('r4', 'Room 4', 'high', 20, 71, 19, [booking]);
+
+const r5 = new RoomModel('r5', 'Room 5', 'low', 19, 78, 5, []);
+const r6 = new RoomModel('r6', 'Room 6', 'high', 2, 68, 2, [booking]);
+
 export const ROOMS = [
     r1, 
     r2,
+    r3,
+    r4,
+    r5,
+    r6
 ]

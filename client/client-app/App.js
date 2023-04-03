@@ -7,6 +7,7 @@ import TabRoot from "./TabRoot";
 import ForgotPassword from "./ForgotPassword"
 import AddEvent from './AddEvent';
 import RoomDetail from './rooms/RoomDetail';
+import FloorDetail from './floors/FloorDetail';
 
 const Stack = createNativeStackNavigator();
 
@@ -39,6 +40,7 @@ function App() {
         <Stack.Screen name="AddEvent" component={AddEvent} />
         <Stack.Screen name="EditEvent" component={EditEvent} />
         <Stack.Screen name="RoomDetail" component={RoomDetail} />
+        <Stack.Screen name="FloorDetail" component={FloorDetail} />
       </Stack.Navigator>
     </NavigationContainer>
   );
