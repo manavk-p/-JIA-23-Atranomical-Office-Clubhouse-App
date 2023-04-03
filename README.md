@@ -2,6 +2,16 @@
 Application for AstraZeneca and CS-3312/LMC-3431.  Desk booking and Office notification software for returning to in-person working. 
 
 # Release Notes
+## v.0.4.0
+### Features
+* Added desk map to desks screen
+* Booking details on rooms page
+* Editing user preferences on settings page
+### Bug Fixes
+* Styling issues on desks page
+* Images not displaying correctly on events page
+### Known Issues
+* Scroll not working on events page
 ## v.0.3.0
 ### Features
 * Edit events page
