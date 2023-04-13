@@ -14,7 +14,7 @@ import { ROOMS } from "./data/DummyData";
 
 const Floor = ({ title, room1, room2, navigation }) => {
   return (
-    <View style={{padding: 20}}>
+    <View style={{margin: 20}}>
       <Text style={textStyles.h2}>
         {title}
       </Text>
@@ -79,7 +79,7 @@ const Desks = ({ navigation }) => {
   return (
     <SafeAreaView>
       <Text style={textStyles.h1}>
-        {'Floors'}
+        {'Office Floors'}
       </Text>
       <ScrollView>
         <Floor title="Floor 0" room1={ROOMS[0]} room2={ROOMS[1]} navigation={navigation}/>
