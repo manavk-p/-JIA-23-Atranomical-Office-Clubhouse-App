@@ -24,7 +24,9 @@ const AddEvent = ({navigation}) => {
         setSelectedRoom(roomSelected);
         setRoomSelectVisible(false);
     }
-
+    
+    const [eventName, setEventName] = useState("");
+    const [descriptionText, setDescriptionText] = useState("");
     function renderEventComponent(itemData) {
         
         return (
@@ -36,7 +38,35 @@ const AddEvent = ({navigation}) => {
         );
       }
 
+      function onEventNameTextChange(inputText) {
+        setEventName(inputText);
+      }
 
+    function onDescriptionTextChange(inputText) {
+        setDescriptionText(inputText);
+    }
+    const [date, setDate] = useState(new Date());
+
+    function changeDate(event, selectedDate) {
+        const currentDate = selectedDate || date;
+        setDate(currentDate);
+        console.log(currentDate.toLocaleDateString('en-US', {
+            month: 'long',
+            day: 'numeric'
+          }).replace(/(\d)(?=(\d{2})+$)/g, '$1st,'));
+    }
+
+    const [time, setTime] = useState(new Date());
+
+    function changeTime(event, selectedTime) {
+        const currentTime = selectedTime || time;
+        setTime(currentTime);
+        console.log(time.toLocaleTimeString('en-US', {
+            hour: 'numeric',
+            minute: 'numeric',
+            hour12: true
+          }));
+    }
     return (
         <SafeAreaView style={styles.eventScreenContainer}>
         <ScrollView>
@@ -60,7 +90,7 @@ const AddEvent = ({navigation}) => {
         </View>
         <View style={addEventStyles.addEventContainer}>
             <View style={addEventStyles.textEntryContainerMain}>
-                <TextInput placeholder="Event Name" style={addEventStyles.textEntryFont}></TextInput>
+                <TextInput placeholder="Event Name" style={addEventStyles.textEntryFont} placeholderTextColor={'black'} onChangeText={onEventNameTextChange}></TextInput>
             </View>
             <View style={addEventStyles.textEntryContainerMain}>
                 <Pressable onPress={openRoomModalHandler}>
@@ -69,19 +99,14 @@ const AddEvent = ({navigation}) => {
             </View>
             <View style={addEventStyles.leftRightFlex}>
                 <Text>Select Date</Text>
-                <DateTimePicker mode="date" value={new Date()} style={styles.dateTimePicker} />
+                <DateTimePicker mode="date" value={date} style={styles.dateTimePicker} onChange={changeDate}/>
             </View>
             <View style={addEventStyles.leftRightFlex}>
                 <Text>Select Time</Text>
-                <DateTimePicker mode="time" value={new Date()} style={styles.dateTimePicker} />
+                <DateTimePicker mode="time" value={time} style={styles.dateTimePicker} onChange={changeTime} />
             </View>
             <View style={addEventStyles.textEntryContainerSecondary}>
-                <TextInput placeholder="Description" style={[addEventStyles.textEntryFont]}></TextInput>
-            </View>
-            <View style={addEventStyles.textEntryContainerMain}>
-                <Pressable>
-                <Text style={addEventStyles.textEntryFont}>Add Image</Text>
-                </Pressable>
+                <TextInput placeholder="Description" style={[addEventStyles.textEntryFont]} placeholderTextColor={'black'} onChangeText={onDescriptionTextChange}></TextInput>
             </View>
             <View style={addEventStyles.createButton}>
                 <TouchableOpacity 
@@ -126,7 +151,8 @@ const addEventStyles = StyleSheet.create({
     textEntryFont: {
         fontSize: 20,
         marginTop: 5,
-        marginLeft: 5
+        marginLeft: 5,
+        color: 'black'
     },
     textEntryContainerSecondary: {
         width: "90%",
