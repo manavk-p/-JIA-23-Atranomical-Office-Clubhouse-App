@@ -1,11 +1,53 @@
-import { View, SafeAreaView, Pressable, Text, TextInput, StyleSheet, TouchableOpacity, ScrollView } from "react-native";
+import { useState } from "react";
+import { View, SafeAreaView, Pressable, Text, TextInput, StyleSheet, TouchableOpacity, ScrollView, Modal, FlatList} from "react-native";
 import { styles, textStyles, Colors } from "./styles";
 import DateTimePicker from '@react-native-community/datetimepicker';
-
+import { ROOMS } from "./data/DummyData";
 const AddEvent = ({navigation}) => {
+
+    const rooms = useState(ROOMS);
+
+    const [selectedRoom, setSelectedRoom] = useState("Select Location");
+    function openRoomModalHandler() {
+        setRoomSelectVisible(true);
+        console.log("Select Event!");
+    }
+
+    function closeRoomModalHandler() {
+        setRoomSelectVisible(false);
+        console.log("Closed room menu!");
+    }
+    const [roomSelectVisible, setRoomSelectVisible] = useState(false);
+
+    function roomSelectedHandler(roomSelected){
+        console.log(roomSelected)
+        setSelectedRoom(roomSelected);
+        setRoomSelectVisible(false);
+    }
+
+    function renderEventComponent(itemData) {
+        
+        return (
+            <View style={{backgroundColor: 'black', width: 200, height: 40, marginBottom: 2, borderRadius: 10}}>
+                <Pressable onPress={() => roomSelectedHandler(itemData.item.name)} hitSlop={{top: 10, bottom: 10, left: 10, right: 40}}>
+                    <Text style={{color: 'white'}}>{itemData.item.name}</Text>
+                </Pressable>
+            </View>
+        );
+      }
+
+
     return (
         <SafeAreaView style={styles.eventScreenContainer}>
         <ScrollView>
+        <Modal style={{height: 200, width: 200, margin: 50  }} transparent={true} animationType="fade" visible={roomSelectVisible}>
+            <View style={{height: 200, width: 200, backgroundColor: 'white', top: 215, left: 50, borderRadius: 15}}>
+                <FlatList data={ROOMS} keyExtractor={(item) => item.id}
+          renderItem={renderEventComponent}>
+                    
+                </FlatList>
+            </View>
+        </Modal>
         <View>
           <View style={styles.screenHeader}>
             <Text style={textStyles.h1}>
@@ -21,8 +63,8 @@ const AddEvent = ({navigation}) => {
                 <TextInput placeholder="Event Name" style={addEventStyles.textEntryFont}></TextInput>
             </View>
             <View style={addEventStyles.textEntryContainerMain}>
-                <Pressable>
-                    <Text style={addEventStyles.textEntryFont}>Select Location</Text>
+                <Pressable onPress={openRoomModalHandler}>
+                    <Text style={addEventStyles.textEntryFont}>{selectedRoom}</Text>
                 </Pressable>
             </View>
             <View style={addEventStyles.leftRightFlex}>
