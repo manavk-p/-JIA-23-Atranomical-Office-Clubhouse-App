@@ -88,6 +88,7 @@ console.log(pairs)
 const Desks = ({ navigation }) => {
   return (
     <SafeAreaView>
+      <View>
       <Text style={textStyles.h1}>
         {'Office Floors'}
       </Text>
@@ -99,6 +100,7 @@ const Desks = ({ navigation }) => {
           return (<Floor title={title} room1={item.item[0]} room2={item.item[1]} navigation={navigation}/>);
         }}
       />
+      </View>
     </SafeAreaView>
   );
 }
