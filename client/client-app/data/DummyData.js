@@ -3,14 +3,14 @@ import SettingsModel from "../models/SettingsModel";
 import { RoomModel, Booking } from "../models/RoomModel";
 import User from "../models/User";
 
-const e1 = new EventModel('1', 'Office Potluck', '10-24-22', '1:00 PM', null, "This is a placeholder description to test the client application. Please RSVP at least a day before each event.");
-const e2 = new EventModel('2', 'Coffee and Donuts', '10-26-22', '9:30 AM', null, "This is a placeholder description to test the client application. Please RSVP at least a day before each event.");
-const e3 = new EventModel('3', 'Catered Lunch', '10-27-22', '1:00 PM', null, "This is a placeholder description to test the client application. Please RSVP at least a day before each event.");
-const e4 = new EventModel('4', 'Halloween Party', '10-31-22', '6:00 PM', null, "This is a placeholder description to test the client application. Please RSVP at least a day before each event.");
-const e5 = new EventModel('5', 'Staff Appreciation Dinner', '11-04-22', '7:00 PM', null, "This is a placeholder description to test the client application. Please RSVP at least a day before each event.")
+const e1 = new EventModel('1', 'Office Potluck', '10-24-22', '1:00 PM', null, "This is a placeholder description to test the client application. Please RSVP at least a day before each event.", "Room 1");
+const e2 = new EventModel('2', 'Coffee and Donuts', '10-26-22', '9:30 AM', null, "This is a placeholder description to test the client application. Please RSVP at least a day before each event.", "Room 3");
+const e3 = new EventModel('3', 'Catered Lunch', '10-27-22', '1:00 PM', null, "This is a placeholder description to test the client application. Please RSVP at least a day before each event.", "Room 2");
+const e4 = new EventModel('4', 'Halloween Party', '10-31-22', '6:00 PM', null, "This is a placeholder description to test the client application. Please RSVP at least a day before each event.", "Room 1");
+const e5 = new EventModel('5', 'Staff Appreciation Dinner', '11-04-22', '7:00 PM', null, "This is a placeholder description to test the client application. Please RSVP at least a day before each event.", "Room 5")
 
 
-export const EVENTS = [
+export let EVENTS = [
     e1,
     e2,
     e3,

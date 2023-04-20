@@ -3,6 +3,9 @@ import { View, SafeAreaView, Pressable, Text, TextInput, StyleSheet, TouchableOp
 import { styles, textStyles, Colors } from "./styles";
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { ROOMS } from "./data/DummyData";
+import EventModel from "./models/EventModel";
+import { APPDATA } from "./data/AppData";
+import { event } from "react-native-reanimated";
 const AddEvent = ({navigation}) => {
 
     const rooms = useState(ROOMS);
@@ -67,6 +70,24 @@ const AddEvent = ({navigation}) => {
             hour12: true
           }));
     }
+    
+    function createEventHandler() {
+        const e1 = new EventModel('1', eventName, date.toLocaleDateString('en-US', {
+          month: '2-digit',
+          day: '2-digit',
+          year: '2-digit'
+        }).replace(/\//g, '-')
+        , 
+        time.toLocaleTimeString('en-US', {
+            hour: 'numeric',
+            minute: 'numeric',
+            hour12: true
+          })
+        , null,descriptionText, selectedRoom);
+        APPDATA.addEvent(e1);
+        navigation.navigate('Events', {updateId: true})
+        }
+        
     return (
         <SafeAreaView style={styles.eventScreenContainer}>
         <ScrollView>
@@ -111,9 +132,7 @@ const AddEvent = ({navigation}) => {
             <View style={addEventStyles.createButton}>
                 <TouchableOpacity 
                     style={addEventStyles.createText}
-                    onPress={() => {
-                        navigation.goBack()
-                    }}
+                    onPress={createEventHandler}
                 >
                     <Text style={{fontWeight: "500"}}> Create </Text>
                 </TouchableOpacity>
