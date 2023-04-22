@@ -42,7 +42,7 @@ const Events = ({route, navigation}) => {
 
 
   return (
-    <SafeAreaView style={styles.SafeAreaView}>
+    <SafeAreaView style={[styles.SafeAreaView, {flex: .88}]}>
 
       <View>
         <View style={styles.screenHeader}>
