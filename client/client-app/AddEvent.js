@@ -33,7 +33,7 @@ const AddEvent = ({navigation}) => {
     function renderEventComponent(itemData) {
         
         return (
-            <View style={{backgroundColor: 'black', width: 200, height: 40, marginBottom: 2, borderRadius: 10}}>
+            <View style={addEventStyles.roomItemStyle}>
                 <Pressable onPress={() => roomSelectedHandler(itemData.item.name)} hitSlop={{top: 10, bottom: 10, left: 10, right: 40}}>
                     <Text style={{color: 'white'}}>{itemData.item.name}</Text>
                 </Pressable>
@@ -118,18 +118,18 @@ const AddEvent = ({navigation}) => {
     return (
         <SafeAreaView style={styles.eventScreenContainer}>
         <ScrollView>
-        <Modal style={{height: 200, width: 200, margin: 50  }} transparent={true} animationType="fade" visible={roomSelectVisible}>
-            <View style={{height: 200, width: 200, backgroundColor: 'white', top: 215, left: 50, borderRadius: 15}}>
+        <Modal style={addEventStyles.roomSelectModal} transparent={true} animationType="fade" visible={roomSelectVisible}>
+            <View style={addEventStyles.roomSelectModalView}>
                 <FlatList data={ROOMS} keyExtractor={(item) => item.id}
           renderItem={renderEventComponent}>
                     
                 </FlatList>
             </View>
         </Modal>
-        <Modal style={{height: 200, width: 200, margin: 50  }} transparent={true} animationType="slide" visible={alertVisible}>
+        <Modal style={addEventStyles.errorModal} transparent={true} animationType="slide" visible={alertVisible}>
             <TouchableOpacity onPress={closeAlertHandler}>
-            <View style={{height: 280, width: 300, backgroundColor: 'white', top: 270, left: 40, borderRadius: 15, alignItems: 'center', justifyContent: 'center'}}>
-                <Image source={require('../client-app/assets/images/error.jpeg')} style={{height: 100, width: 100, marginTop:10, marginBottom: 30}}/>
+            <View style={addEventStyles.errorModalView}>
+                <Image source={require('../client-app/assets/images/error.jpeg')} style={addEventStyles.errorImage}/>
                 <Text>
                     Please enter a valid {alertText}
                 </Text>
@@ -229,5 +229,50 @@ const addEventStyles = StyleSheet.create({
         color: 'white',
         fontSize: 25,
         fontWeight: '500',
+    },
+    roomItemStyle: {
+        backgroundColor: '#00A36C',
+        width: 200,
+        height: 40,
+        marginBottom: 2,
+        borderRadius: 10,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    roomSelectModal: {
+        height: 200,
+        width: 200,
+        margin: 50  
+    },
+    roomSelectModalView: {
+        height: 200,
+        width: 200,
+        backgroundColor: 'white',
+        top: 215,
+        left: 50,
+        borderRadius: 15
+    },
+    errorModal: {
+        height: 200,
+        width: 200,
+        margin: 50
+    },
+    errorModalView: {
+        height: 280,
+        width: 300,
+        backgroundColor: 'white',
+        top: 270,
+        left: 40,
+        borderRadius: 15,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    errorImage: {
+        height: 100,
+        width: 100,
+        marginTop:10,
+        marginBottom: 30
     }
 });
+
+
