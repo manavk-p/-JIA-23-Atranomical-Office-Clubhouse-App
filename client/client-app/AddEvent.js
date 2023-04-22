@@ -1,11 +1,10 @@
 import { useState } from "react";
-import { View, SafeAreaView, Pressable, Text, TextInput, StyleSheet, TouchableOpacity, ScrollView, Modal, FlatList} from "react-native";
+import { View, SafeAreaView, Pressable, Text, TextInput, StyleSheet, TouchableOpacity, ScrollView, Modal, FlatList, Alert, Image} from "react-native";
 import { styles, textStyles, Colors } from "./styles";
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { ROOMS } from "./data/DummyData";
 import EventModel from "./models/EventModel";
 import { APPDATA } from "./data/AppData";
-import { event } from "react-native-reanimated";
 const AddEvent = ({navigation}) => {
 
     const rooms = useState(ROOMS);
@@ -21,11 +20,12 @@ const AddEvent = ({navigation}) => {
         console.log("Closed room menu!");
     }
     const [roomSelectVisible, setRoomSelectVisible] = useState(false);
-
+    const [alertVisible, setAlertVisible] = useState(false);
+    const [alertText, setAlertText] = useState("event name");
     function roomSelectedHandler(roomSelected){
         console.log(roomSelected)
         setSelectedRoom(roomSelected);
-        setRoomSelectVisible(false);
+        closeRoomModalHandler();
     }
     
     const [eventName, setEventName] = useState("");
@@ -72,6 +72,29 @@ const AddEvent = ({navigation}) => {
     }
     
     function createEventHandler() {
+
+        if (eventName.length === 0) {
+            setAlertText("event name");
+            setAlertVisible(true);
+            return;
+        }
+        if (selectedRoom === "Select Location") {
+            setAlertText("room")
+            setAlertVisible(true);
+            return;
+        }
+        if (date < new Date()) {
+            setAlertText("date");
+            setAlertVisible(true);
+            return;
+        }
+        if (descriptionText.length === 0) {
+            setAlertText("description");
+            setAlertVisible(true);
+            return;
+        }
+
+
         const e1 = new EventModel('1', eventName, date.toLocaleDateString('en-US', {
           month: '2-digit',
           day: '2-digit',
@@ -87,6 +110,10 @@ const AddEvent = ({navigation}) => {
         APPDATA.addEvent(e1);
         navigation.navigate('Events', {updateId: true})
         }
+
+        function closeAlertHandler() {
+            setAlertVisible(false);
+        }
         
     return (
         <SafeAreaView style={styles.eventScreenContainer}>
@@ -98,6 +125,16 @@ const AddEvent = ({navigation}) => {
                     
                 </FlatList>
             </View>
+        </Modal>
+        <Modal style={{height: 200, width: 200, margin: 50  }} transparent={true} animationType="slide" visible={alertVisible}>
+            <TouchableOpacity onPress={closeAlertHandler}>
+            <View style={{height: 280, width: 300, backgroundColor: 'white', top: 270, left: 40, borderRadius: 15, alignItems: 'center', justifyContent: 'center'}}>
+                <Image source={require('../client-app/assets/images/error.jpeg')} style={{height: 100, width: 100, marginTop:10, marginBottom: 30}}/>
+                <Text>
+                    Please enter a valid {alertText}
+                </Text>
+            </View>
+            </TouchableOpacity>
         </Modal>
         <View>
           <View style={styles.screenHeader}>

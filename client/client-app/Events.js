@@ -6,7 +6,7 @@ import {
   View,
   Pressable,
   FlatList,
-  AppRegistry
+  AppRegistry,
 } from "react-native";
 import EventComponent from "./EventComponent";
 import { EVENTS } from "./data/DummyData";
