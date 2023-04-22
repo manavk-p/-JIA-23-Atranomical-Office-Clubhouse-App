@@ -2,6 +2,7 @@ import { StatusBar } from "expo-status-bar";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React, { useState } from "react";
 import { styles, textStyles, Colors } from "./styles";
+import { APPDATA } from "./data/AppData";
 
 import {
   StyleSheet,
@@ -60,8 +61,12 @@ const Login = ({navigation}) => {
 
         <TouchableOpacity 
           style={loginStyles.loginBtn}
-          onPress={() =>
-            navigation.navigate('TabRoot', {name: 'Jane'})
+          onPress={() => {
+            if (APPDATA._accountExists(email)) {
+              navigation.navigate('TabRoot', {name: APPDATA.NAME});
+            }
+          }
+            
           }
           disabled={!email || !password}
         >

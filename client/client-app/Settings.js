@@ -7,6 +7,7 @@ import {
   View,
   ScrollView
 } from "react-native";
+import { APPDATA } from "./data/AppData";
 import { styles, textStyles, Colors } from "./styles";
 
 const Settings = ({navigation}) => {
@@ -18,8 +19,8 @@ const Settings = ({navigation}) => {
       <ScrollView>
         <View style={settingsStyle.btnFlex}>
           <View style={styles.cell}>
-            <Text style={textStyles.h2}>John Garrett</Text>
-            <Text style={textStyles.paragraph}>jgarrett47@gatech.edu</Text>
+            <Text style={textStyles.h2}>{APPDATA.NAME}</Text>
+            <Text style={textStyles.paragraph}>{APPDATA.EMAIL}</Text>
           </View>
 
           <View style={styles.cell}>

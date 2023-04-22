@@ -9,6 +9,7 @@ class AppData {
         this.PERMISSIONS = 0;
         this.eventCounter = 0; //This should be replaced with a methodology to assign unique event ids
                                //from the database
+        this._activeAccounts = new Map();//
     }
 
     //These getters and setters have some additional class overhead where we shouldn't access them directly
@@ -42,6 +43,22 @@ class AppData {
         return Array.from(this.EVENTS.values());
     }
 
+    //This should not really be called
+    _addAcount(name, email) {
+        this._activeAccounts.set(email, name);
+    }
+
+    //Meant to demo the login process. This should be replaced by an actual authentication process
+    _accountExists(email) {
+        if (this._activeAccounts.has(email)) {
+            this.NAME = this._activeAccounts.get(email);
+            this.EMAIL = email;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }
 
 
@@ -53,6 +70,9 @@ for (let i = 0; i < EVENTS.length; i++) {
 
     tmp.addEvent(EVENTS[i]);
 }
+
+tmp._addAcount("George P. Burdell", "george.burdell@gatech.edu"); //Demo account
+tmp._addAcount("John Garrett", "jgarret47@gatech.edu");
 
 export const APPDATA = tmp;
 
