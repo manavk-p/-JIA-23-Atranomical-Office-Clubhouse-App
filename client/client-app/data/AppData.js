@@ -1,5 +1,5 @@
 import EventModel from "../models/EventModel";
-import { EVENTS, FLOORS } from "../data/DummyData";
+import { EVENTS } from "../data/DummyData";
 
 class AppData {
     constructor() {
@@ -60,10 +60,6 @@ let tmp = new AppData();
 for (let i = 0; i < EVENTS.length; i++) {
 
     tmp.addEvent(EVENTS[i]);
-}
-
-for (let i = 0; i < FLOORS.length; i++) {
-    tmp.addFloor(FLOORS[i]);
 }
 export const APPDATA = tmp;
 
