@@ -1,5 +1,6 @@
 import { styles, textStyles, Colors } from "../styles";
 import React from "react";
+import { TouchableOpacity } from "react-native";
 
 import {
   Text,
@@ -21,49 +22,22 @@ const FloorDetail = ({ route, navigation }) => {
       </Text>
       <ScrollView>
         <View style={floorStyles.deskGrid}>
-          <View style={[floorStyles.desk, floorStyles.avail]} />
-          <View style={[floorStyles.desk, floorStyles.avail]} />
-          <View style={[floorStyles.desk, floorStyles.avail]} />
-          <View style={[floorStyles.desk, floorStyles.unavail]} />
-          <View style={[floorStyles.desk, floorStyles.unavail]} />
-          <View style={[floorStyles.desk, floorStyles.avail]} />
-          <View style={[floorStyles.desk, floorStyles.avail]} />
-          <View style={[floorStyles.desk, floorStyles.avail]} />
-          <View style={[floorStyles.desk, floorStyles.unavail]} />
-          <View style={[floorStyles.desk, floorStyles.avail]} />
-          <View style={[floorStyles.desk, floorStyles.avail]} />
-          <View style={[floorStyles.desk, floorStyles.unavail]} />
-          <View style={[floorStyles.desk, floorStyles.avail]} />
-          <View style={[floorStyles.desk, floorStyles.unavail]} />
-          <View style={[floorStyles.desk, floorStyles.avail]} />
-          <View style={[floorStyles.desk, floorStyles.unavail]} />
-          <View style={[floorStyles.desk, floorStyles.avail]} />
-          <View style={[floorStyles.desk, floorStyles.unavail]} />
-          <View style={[floorStyles.desk, floorStyles.avail]} />
-          <View style={[floorStyles.desk, floorStyles.unavail]} />
-          <View style={[floorStyles.desk, floorStyles.unavail]} />
-          <View style={[floorStyles.desk, floorStyles.unavail]} />
-          <View style={[floorStyles.desk, floorStyles.avail]} />
-          <View style={[floorStyles.desk, floorStyles.avail]} />
-          <View style={[floorStyles.desk, floorStyles.avail]} />
-          <View style={[floorStyles.desk, floorStyles.unavail]} />
-          <View style={[floorStyles.desk, floorStyles.unavail]} />
-          <View style={[floorStyles.desk, floorStyles.unavail]} />
-          <View style={[floorStyles.desk, floorStyles.avail]} />
-          <View style={[floorStyles.desk, floorStyles.avail]} />
-          <View style={[floorStyles.desk, floorStyles.unavail]} />
-          <View style={[floorStyles.desk, floorStyles.avail]} />
-          <View style={[floorStyles.desk, floorStyles.unavail]} />
-          <View style={[floorStyles.desk, floorStyles.unavail]} />
-          <View style={[floorStyles.desk, floorStyles.unavail]} />
-          <View style={[floorStyles.desk, floorStyles.avail]} />
-          <View style={[floorStyles.desk, floorStyles.avail]} />
-          <View style={[floorStyles.desk, floorStyles.avail]} />
-          <View style={[floorStyles.desk, floorStyles.unavail]} />
-          <View style={[floorStyles.desk, floorStyles.unavail]} />
-          <View style={[floorStyles.desk, floorStyles.unavail]} />
-          <View style={[floorStyles.desk, floorStyles.avail]} />
-          <View style={[floorStyles.desk, floorStyles.avail]} />
+          {[...Array(room.numDesks)].map(
+          (value, index) => (
+            <TouchableOpacity
+                    onPress={() => {
+                        console.log(index)
+                        params = {
+                          room: room,
+                          idx: index,
+                        }
+                        navigation.navigate("DeskDetail", params);
+                    }}
+              >
+                <View style={[floorStyles.desk, floorStyles.avail]} />
+            </TouchableOpacity>
+            
+          ))}
         </View>
       </ScrollView>
     </SafeAreaView>
