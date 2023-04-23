@@ -44,7 +44,7 @@ const BookDesk = ({room, handleChange, deskIdx, navigation}) => {
                 onPress={() => {
                     const booking = new Booking(startDate, endDate, { name: "You" });
                     room.desks[deskIdx].bookings.push(booking);
-                    // handleChange(deskIdx)
+                    handleChange(deskIdx)
                     navigation.goBack();
                 }
                 }
@@ -70,7 +70,7 @@ const EditBooking = ({room, navigation, deskIdx,handleChange}) => {
             booking.start = date
             booking.end = end
             room.desks[deskIdx].bookings.push(booking)
-            //handleChange(room)
+            //handleChange(deskIdx)
         }
         const updateBookingEnd = (event, date) => {
             console.log("id", booking.id, booking)
@@ -79,7 +79,7 @@ const EditBooking = ({room, navigation, deskIdx,handleChange}) => {
             booking.start = start
             booking.end = date
             room.desks[deskIdx].bookings.push(booking)
-            //handleChange(room)
+            //handleChange(deskIdx)
         }
 
         
@@ -117,7 +117,11 @@ const EditBooking = ({room, navigation, deskIdx,handleChange}) => {
                             setReRenderState( (prevState) => {
                                 return prevState + 1;
                             })
-                            //handleChange(room)
+                            if (room.desks[deskIdx].bookings.length == 0) {
+                                handleChange(deskIdx);
+                            }
+
+                            //handleChange(deskIdx)
                         }}
                     >
                         <Text>Remove</Text>
@@ -128,7 +132,7 @@ const EditBooking = ({room, navigation, deskIdx,handleChange}) => {
                         onPress={() => {
                             booking = new Booking(start, end, { name: "You" });
                             room.desks[deskIdx].bookings.push(booking)
-                            //handleChange(room)
+                            //handleChange(deskIdx)
                             room.desks[deskIdx].refresh = !room.desks[deskIdx].bookings
                             navigation.goBack()
                             
@@ -153,13 +157,17 @@ const EditBooking = ({room, navigation, deskIdx,handleChange}) => {
                 extraData={reRenderState}
 
             />
+
+            {/* {
+                room.desks[deskIdx].bookings.map((item)=> <BookingEntry booking={item}/>)
+            } */}
         </View>
     );
 }
 
 
 const DeskDetail = ({ route, navigation }) => {
-    const { room, idx, /*handleChange*/ } = route.params;
+    const { room, idx, handleChange } = route.params;
     console.log(idx);
     return (
         <SafeAreaView style={[styles.safeViewContainer, deskDetailStyles.viewPort]}>
@@ -178,8 +186,8 @@ const DeskDetail = ({ route, navigation }) => {
                     Temperature: {room.temperature}°
                 </Text>
             </View>
-            <EditBooking navigation={navigation} room={room} handleChange={""} deskIdx={idx}/>  
-            <BookDesk navigation={navigation} handleChange={""} room={room} deskIdx={idx}/> 
+            <EditBooking navigation={navigation} room={room} handleChange={handleChange} deskIdx={idx}/>  
+            <BookDesk navigation={navigation} handleChange={handleChange} room={room} deskIdx={idx}/> 
             <TouchableOpacity
                 style={deskDetailStyles.doneButton}
                 onPress={() => {
