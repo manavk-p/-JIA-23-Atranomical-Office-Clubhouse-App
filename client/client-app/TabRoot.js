@@ -30,7 +30,9 @@ const TabRoot = ({ navigation, route }) => {
             } else if (route.name === 'Events') {
               iconName = focused ? 'browsers' : 'browsers-outline'
             }//add more icons here. Currently we are using premade ionicon art but we can use our own icons if we make them
-
+            else if (route.name == 'Rooms') {
+              iconName = focused ? 'easel' : 'easel-outline'
+            }
             // You can return any component that you like here!
             return <Ionicons name={iconName} size={size} color={color} />;
           },
@@ -44,7 +46,7 @@ const TabRoot = ({ navigation, route }) => {
         <Tab.Screen name="Events" component={Events} initialParams={{updateId: false}} />
         <Tab.Screen name="Rooms" component={Rooms}/>
         <Tab.Screen name="Settings" component={Settings} initialParams={{email: route.params.email}} />
-        <Tab.Screen name="Management" component={Management}/>
+        {/* <Tab.Screen name="Management" component={Management}/> */}
       </Tab.Navigator>
   );
 }
