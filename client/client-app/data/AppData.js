@@ -1,5 +1,5 @@
 import EventModel from "../models/EventModel";
-import { EVENTS } from "../data/DummyData";
+import { EVENTS, FLOORS } from "../data/DummyData";
 
 class AppData {
     constructor() {
@@ -9,6 +9,8 @@ class AppData {
         this.PERMISSIONS = 0;
         this.eventCounter = 0; //This should be replaced with a methodology to assign unique event ids
                                //from the database
+        this.FLOORS = new Map();
+        this.floorCounter = 0;
     }
 
     //These getters and setters have some additional class overhead where we shouldn't access them directly
@@ -42,6 +44,12 @@ class AppData {
         return Array.from(this.EVENTS.values());
     }
 
+    addFloor(floorModel) {
+        this.floorCounter++;
+        floorModel.id = this.floorCounter
+        this.FLOORS.set(this.eventCounter, floorModel);
+    }
+
 }
 
 
@@ -54,6 +62,9 @@ for (let i = 0; i < EVENTS.length; i++) {
     tmp.addEvent(EVENTS[i]);
 }
 
+for (let i = 0; i < FLOORS.length; i++) {
+    tmp.addFloor(FLOORS[i]);
+}
 export const APPDATA = tmp;
 
 

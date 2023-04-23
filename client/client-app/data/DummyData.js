@@ -1,6 +1,7 @@
 import EventModel from "../models/EventModel";
 import SettingsModel from "../models/SettingsModel";
 import { RoomModel, Booking } from "../models/RoomModel";
+import { Floor } from "../models/Floor";
 import User from "../models/User";
 
 const e1 = new EventModel('1', 'Office Potluck', '10-24-22', '1:00 PM', null, "This is a placeholder description to test the client application. Please RSVP at least a day before each event.");
@@ -39,3 +40,20 @@ export const ROOMS = [
     r5,
     r6
 ]
+const _num_desk = 43;
+const f1 = new Floor('f1', 'Floor 1', 'low', 15, 65, _num_desk);
+const f2 = new Floor('f2', 'Floor 2', 'high', 20, 68, _num_desk  );
+const f3 = new Floor('f3', 'Floor 3', 'high', 23, 72, _num_desk  );
+const f4 = new Floor('f4', 'Floor 4', 'high', 20, 71, _num_desk  );
+const f5 = new Floor('f5', 'Floor 5', 'low', 19, 78, _num_desk );
+const f6 = new Floor('f6', 'Floor 6', 'high', 2, 68, _num_desk);
+
+export const FLOORS = [
+    f1, 
+    f2,
+    f3,
+    f4,
+    f5,
+    f6
+]
+
