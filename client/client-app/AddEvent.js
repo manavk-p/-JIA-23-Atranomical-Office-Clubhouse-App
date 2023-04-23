@@ -2,7 +2,10 @@ import { useState } from "react";
 import { View, SafeAreaView, Pressable, Text, TextInput, StyleSheet, TouchableOpacity, ScrollView, Modal, FlatList} from "react-native";
 import { styles, textStyles, Colors } from "./styles";
 import DateTimePicker from '@react-native-community/datetimepicker';
-import { ROOMS } from "./data/DummyData";
+import { ROOMS, EVENTS } from "./data/DummyData";
+import EventModel from "./models/EventModel";
+import Events from "./Events";
+import { APPDATA } from "./data/AppData";
 const AddEvent = ({navigation}) => {
 
     const rooms = useState(ROOMS);
@@ -87,6 +90,9 @@ const AddEvent = ({navigation}) => {
                 <TouchableOpacity 
                     style={addEventStyles.createText}
                     onPress={() => {
+                        // EVENTS.push(new EventModel('6', 'Test', 'Test', 'Test', 'test', 'test'));
+                        console.log('pressed');
+                        APPDATA.addEvent(new EventModel('6', 'Test', 'Test', 'Test', 'test', 'test'));
                         navigation.goBack()
                     }}
                 >
