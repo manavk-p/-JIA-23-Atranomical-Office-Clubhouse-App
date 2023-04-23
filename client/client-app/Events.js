@@ -37,9 +37,6 @@ const Events = ({route, navigation}) => {
     navigation.navigate("AddEvent");
   }
 
-  
-
-
   return (
     <SafeAreaView style={styles.SafeAreaView}>
 
