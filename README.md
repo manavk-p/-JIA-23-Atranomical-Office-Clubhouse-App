@@ -21,6 +21,7 @@ npm install -g react-native-cli
 ```
 Install local dependencies
 ```
+JIA-2318-Astranomical-Office-Clubhouse-App
 cd client/client-app
 npm i
 ```
@@ -31,12 +32,12 @@ npm start
 ```
 
 ## Troubleshooting
-Check the npm and Node.js versions using. node v16.18.1 and npm v8.19.2 are known to work.
+Check the npm and Node.js versions using the commands below. node v16.18.1 and npm v8.19.2 are known to work.
 ```
 npm -v
 node -v
 ```
-
+Make sure react-native is installed according to the version in the package.json file as well. 
 
 # Release Notes
 ## v1.0.0
@@ -44,11 +45,15 @@ node -v
 * Desks screen - desk discovery, booking
 * Events screen - event discovery, editing
 * Settings screen - viewing settings, editing user preferences
+* Settings screen - displaying user settings and logging out
 ### Bug Fixes
-* Scrolling issues
-* Data saving
+* Scrolling issues on events page, rooms page
+* Displaying new data on events page
+* Desk bookings on iOS
 ### Known Issues
-* 
+* Displaying a new event after adding
+* Adding new images to an event
+* Editing user preference settings
 ## v.0.4.0
 ### Features
 * Added desk map to desks screen
