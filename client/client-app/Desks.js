@@ -6,7 +6,8 @@ import {
   SafeAreaView,
   View,
   StyleSheet,
-  TouchableOpacity
+  TouchableOpacity,
+  FlatList
 } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 
@@ -75,17 +76,31 @@ const Floor = ({ title, room1, room2, navigation }) => {
   );
 };
 
+
+const pairs = ROOMS.map((room, index) => {
+  if (index % 2 === 0) {
+    return [room, ROOMS[index + 1]];
+  }
+}).filter(x => x);
+
+console.log(pairs)
+
 const Desks = ({ navigation }) => {
   return (
     <SafeAreaView>
+      <View>
       <Text style={textStyles.h1}>
         {'Office Floors'}
       </Text>
-      <ScrollView>
-        <Floor title="Floor 0" room1={ROOMS[0]} room2={ROOMS[1]} navigation={navigation}/>
-        <Floor title="Floor 1" room1={ROOMS[2]} room2={ROOMS[3]} navigation={navigation}/>
-        <Floor title="Floor 2" room1={ROOMS[4]} room2={ROOMS[5]} navigation={navigation}/>
-      </ScrollView>
+      <FlatList showsVerticalScrollIndicator={false}
+          data={pairs}
+        renderItem={(item) => {
+          console.log("item:        ", item)
+          const title = 'Floor ' + item.index
+          return (<Floor title={title} room1={item.item[0]} room2={item.item[1]} navigation={navigation}/>);
+        }}
+      />
+      </View>
     </SafeAreaView>
   );
 }

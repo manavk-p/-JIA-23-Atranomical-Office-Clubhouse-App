@@ -6,6 +6,8 @@ import { ROOMS } from "./data/DummyData";
 import EventModel from "./models/EventModel";
 import { APPDATA } from "./data/AppData";
 import { event } from "react-native-reanimated";
+
+
 const AddEvent = ({navigation}) => {
 
     const rooms = useState(ROOMS);
@@ -133,6 +135,7 @@ const AddEvent = ({navigation}) => {
                 <TouchableOpacity 
                     style={addEventStyles.createText}
                     onPress={createEventHandler}
+
                 >
                     <Text style={{fontWeight: "500"}}> Create </Text>
                 </TouchableOpacity>
