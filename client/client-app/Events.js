@@ -6,7 +6,7 @@ import {
   View,
   Pressable,
   FlatList,
-  AppRegistry
+  AppRegistry,
 } from "react-native";
 import EventComponent from "./EventComponent";
 import { EVENTS } from "./data/DummyData";
@@ -24,6 +24,7 @@ function renderEventComponent(itemData) {
             time={itemData.item.time}
             description={itemData.item.description}
             id={itemData.item.id}
+            room={itemData.item.location}
           />
         );
 }
@@ -37,11 +38,8 @@ const Events = ({route, navigation}) => {
     navigation.navigate("AddEvent");
   }
 
-  
-
-
   return (
-    <SafeAreaView style={styles.SafeAreaView}>
+    <SafeAreaView style={[styles.SafeAreaView, {flex: .88}]}>
 
       <View>
         <View style={styles.screenHeader}>
