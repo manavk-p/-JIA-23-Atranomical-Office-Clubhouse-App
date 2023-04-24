@@ -28,10 +28,10 @@ const TabRoot = ({ navigation, route }) => {
             } else if (route.name === 'Settings') {
               iconName = focused ? 'list-circle' : 'list-circle-outline';
             } else if (route.name === 'Events') {
-              iconName = focused ? 'browsers' : 'browsers-outline'
+              iconName = focused ? 'calendar' : 'calendar-outline'
             }//add more icons here. Currently we are using premade ionicon art but we can use our own icons if we make them
             else if (route.name == 'Rooms') {
-              iconName = focused ? 'easel' : 'easel-outline'
+              iconName = focused ? 'grid' : 'grid-outline'
             }
             // You can return any component that you like here!
             return <Ionicons name={iconName} size={size} color={color} />;
