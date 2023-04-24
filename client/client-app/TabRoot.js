@@ -7,10 +7,6 @@ import Events from "./Events";
 import Settings from "./Settings";
 import Desks from "./Desks";
 import Rooms from "./rooms/Rooms"
-import Management from "./Management";
-
-
-
 
 const Tab = createBottomTabNavigator();
 
@@ -44,8 +40,8 @@ const TabRoot = ({ navigation, route }) => {
         <Tab.Screen name="Home" component={Desks} />
         <Tab.Screen name="Events" component={Events} initialParams={{updateId: false}} />
         <Tab.Screen name="Rooms" component={Rooms}/>
+//         <Tab.Screen name="Desks" component={Desks} />
         <Tab.Screen name="Settings" component={Settings} initialParams={{email: route.params.email}} />
-        {/* <Tab.Screen name="Management" component={Management}/> */}
       </Tab.Navigator>
   );
 }
