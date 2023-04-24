@@ -24,6 +24,7 @@ function renderEventComponent(itemData) {
             time={itemData.item.time}
             description={itemData.item.description}
             id={itemData.item.id}
+            room={itemData.item.location}
           />
         );
 }

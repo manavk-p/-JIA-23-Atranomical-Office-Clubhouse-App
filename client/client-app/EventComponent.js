@@ -4,7 +4,7 @@ import { styles } from "./styles";
 import { useNavigation } from "@react-navigation/native";
 
 
-const EventComponent = ({name, date, time, imgSrc, description, id}) => {
+const EventComponent = ({name, date, time, imgSrc, description, id, room}) => {
     
     const [imgHeight, setImgHeight] = useState(0);
     const [descriptionText, setDescriptionText] = useState("");
@@ -39,6 +39,9 @@ const EventComponent = ({name, date, time, imgSrc, description, id}) => {
                     </Text>
                     <Text style={styles.eventTextSecondary}>
                         {time}
+                    </Text>
+                    <Text>
+                        {room}
                     </Text>
                     </View>
 
