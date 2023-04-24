@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { styles, textStyles, Colors } from "./styles";
 
-const Settings = ({navigation}) => {
+const Settings = ({navigation, route}) => {
   return (
     <SafeAreaView style={styles.safeViewContainer}>
       <Text style={textStyles.h1}>
@@ -19,7 +19,7 @@ const Settings = ({navigation}) => {
         <View style={settingsStyle.btnFlex}>
           <View style={styles.cell}>
             <Text style={textStyles.h2}>John Garrett</Text>
-            <Text style={textStyles.paragraph}>jgarrett47@gatech.edu</Text>
+            <Text style={textStyles.paragraph}>{route.params.email}</Text>
           </View>
 
           <View style={styles.cell}>
