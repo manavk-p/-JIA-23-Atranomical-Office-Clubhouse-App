@@ -73,7 +73,6 @@ for (let i = 0; i < EVENTS.length; i++) {
 
 tmp._addAcount("George P. Burdell", "george.burdell@gatech.edu"); //Demo account
 tmp._addAcount("John Garrett", "jgarret47@gatech.edu");
-
 export const APPDATA = tmp;
 
 

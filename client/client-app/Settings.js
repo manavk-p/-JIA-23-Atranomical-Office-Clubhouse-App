@@ -10,7 +10,7 @@ import {
 import { APPDATA } from "./data/AppData";
 import { styles, textStyles, Colors } from "./styles";
 
-const Settings = ({navigation}) => {
+const Settings = ({navigation, route}) => {
   return (
     <SafeAreaView style={styles.safeViewContainer}>
       <Text style={textStyles.h1}>

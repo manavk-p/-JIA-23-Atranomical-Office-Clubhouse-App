@@ -1,6 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React, { useState } from "react";
+import { Image } from "react-native"
 import { styles, textStyles, Colors } from "./styles";
 import { APPDATA } from "./data/AppData";
 
@@ -28,8 +29,12 @@ const Login = ({navigation}) => {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar style="auto" />
+      <View>
+        <Image source={require('../client-app/assets/images/AST_logo.jpg')} style={{height: 150, width: 365}}>
+        </Image>
+      </View>
       <Text style={textStyles.h1}>
-        {'Astranomical Office'}
+        {'Office Application'}
       </Text>
 
       <KeyboardAvoidingView style={styles.inputPane}> 
@@ -65,8 +70,6 @@ const Login = ({navigation}) => {
             if (APPDATA._accountExists(email)) {
               navigation.navigate('TabRoot', {name: APPDATA.NAME});
             }
-          }
-            
           }
           disabled={!email || !password}
         >

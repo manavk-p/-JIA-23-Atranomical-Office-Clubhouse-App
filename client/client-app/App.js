@@ -8,7 +8,7 @@ import ForgotPassword from "./ForgotPassword"
 import AddEvent from './AddEvent';
 import RoomDetail from './rooms/RoomDetail';
 import FloorDetail from './floors/FloorDetail';
-
+import DeskDetail from './desks/DeskDetail';
 const Stack = createNativeStackNavigator();
 
 import React, { useEffect } from 'react';
@@ -41,6 +41,7 @@ function App() {
         <Stack.Screen name="EditEvent" component={EditEvent} />
         <Stack.Screen name="RoomDetail" component={RoomDetail} />
         <Stack.Screen name="FloorDetail" component={FloorDetail} />
+        <Stack.Screen name="DeskDetail" component={DeskDetail} />
       </Stack.Navigator>
     </NavigationContainer>
   );
