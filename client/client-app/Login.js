@@ -88,7 +88,7 @@ const loginStyles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginTop: 40,
-    backgroundColor: Colors.green,
+    backgroundColor: '#008000',
   },
 
   loginText: {
