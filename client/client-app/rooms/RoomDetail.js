@@ -197,7 +197,7 @@ const roomDetailStyles = StyleSheet.create({
         justifyContent: "center",
         marginTop: 40,
         paddingHorizontal: 20,
-        backgroundColor: Colors.green,
+        backgroundColor: '#008000',
     },
     checkInButton: {
         width: "100%",
@@ -207,7 +207,7 @@ const roomDetailStyles = StyleSheet.create({
         justifyContent: "center",
         marginTop: 10,
         paddingHorizontal: 20,
-        backgroundColor: Colors.green,
+        backgroundColor: '#008000',
     },
     doneButton: {
         width: "100%",
