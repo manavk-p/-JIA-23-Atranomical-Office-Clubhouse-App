@@ -3,7 +3,6 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import Events from "./Events";
-//import Map from "./Map";
 import Settings from "./Settings";
 import Desks from "./Desks";
 import Rooms from "./rooms/Rooms"
@@ -18,8 +17,8 @@ const TabRoot = ({ navigation, route }) => {
           tabBarIcon: ({ focused, color, size }) => {
             let iconName;
 
-            if (route.name === 'Home') {
-              iconName = focused ? 'home' : 'home-outline';
+            if (route.name === 'Desks') {
+              iconName = focused ? 'desktop' : 'desktop-outline';
             } else if (route.name === 'Settings') {
               iconName = focused ? 'list-circle' : 'list-circle-outline';
             } else if (route.name === 'Events') {
@@ -37,7 +36,7 @@ const TabRoot = ({ navigation, route }) => {
         })}
   
         >
-        <Tab.Screen name="Home" component={Desks} />
+        <Tab.Screen name="Desks" component={Desks} />
         <Tab.Screen name="Events" component={Events} initialParams={{updateId: false}} />
         <Tab.Screen name="Rooms" component={Rooms}/>
 //         <Tab.Screen name="Desks" component={Desks} />
